@@ -5,7 +5,7 @@ class LoginMinh extends CI_Controller
     {
         $this->load->model('Model_Login');
         $data['lesLogin'] = $this->Model_Login->getAllLogin();
-        $this->load->view('AfficherLogin',$data);
+        $this->load->view('View_login',$data);
     }
 }
 

@@ -3,7 +3,9 @@ class Model_Login extends CI_Model
 {
     public function getAllLogin()
     {
-        $sql = $this->db->get('user');
+        $sql = $this->db->query('select idUser, nomUser, login, mdp from user');
+        return $sql->result();
+        
     }
 }
 
