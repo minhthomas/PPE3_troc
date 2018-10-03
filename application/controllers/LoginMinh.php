@@ -4,8 +4,8 @@ class LoginMinh extends CI_Controller
     public function index()
     {
         $this->load->model('Model_Login');
-        $data['lesLogin'] = $this->Model_Login->getAllLogin();
-        $this->load->view('View_login',$data);
+        $data['LesUser'] = $this->Model_Login->GetAllUser();
+        $this->load->view('View_login');
     }
 }
 
