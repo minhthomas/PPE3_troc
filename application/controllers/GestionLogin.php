@@ -1,7 +1,7 @@
 <?php
 class GestionLogin extends CI_Controller
 {
-    public function index()
+    public function Login()
     {
         $this->load->model('Model_Login');
         $data['LesUser'] = $this->Model_Login->GetAllUser();

@@ -9,37 +9,37 @@
 </head>
 <body>
 <?php
-if(isset($_GET['btnConnexion']))   
-{
-    foreach($LesUser as $unUser)
-    {
-        $id = $unUser->login;
-        $mdp = $unUser->mdp;
-        if($_GET['id'] == $id || $_Get['mdp'] == $mdp)
-        {
-            echo "oui";
-        }
-        else
-        {
-            echo "non";
-        }
-        // {
-        //     echo 'oui';
-        // }
-        // else
-        // {
-        //     echo 'non';
-        // }
-    }
-    // if(empty($_GET['id']))
-    // {
-    //     echo 'empty';
-    // }
+// if(isset($_GET['btnConnexion']))   
+// {
+//     foreach($LesUser as $unUser)
+//     {
+//         $id = $unUser->login;
+//         $mdp = $unUser->mdp;
+//         if($_GET['id'] == $id || $_Get['mdp'] == $mdp)
+//         {
+//             echo "oui";
+//         }
+//         else
+//         {
+//             echo "non";
+//         }
+//         // {
+//         //     echo 'oui';
+//         // }
+//         // else
+//         // {
+//         //     echo 'non';
+//         // }
+//     }
+//     // if(empty($_GET['id']))
+//     // {
+//     //     echo 'empty';
+//     // }
 
-}
+// }
 ?>
     <div id="pagelogin">
-        <form method='get' action='index'>
+        <form method='get' action='index.php/GestionLogin/Login'>
             <label>Identifiant</label><br/>
             <input type="text" name="loginuser"><br/>
             <label>Mot de passe</label><br/>
