@@ -8,9 +8,43 @@
     <script src="JQuery/jquery-3.1.1.js"></script> 
 </head>
 <body>
+<?php
+if(isset($_GET['btnConnexion']))   
+{
+    foreach($LesUser as $unUser)
+    {
+        $id = $unUser->login;
+        $mdp = $unUser->mdp;
+        if($_GET['id'] == $id || $_Get['mdp'] == $mdp)
+        {
+            echo "oui";
+        }
+        else
+        {
+            echo "non";
+        }
+        // {
+        //     echo 'oui';
+        // }
+        // else
+        // {
+        //     echo 'non';
+        // }
+    }
+    // if(empty($_GET['id']))
+    // {
+    //     echo 'empty';
+    // }
+
+}
+?>
     <div id="pagelogin">
-        <form method='get' action='indew.php'>
-            <label>Identifiant</label>
+        <form method='get' action= >
+            <label>Identifiant</label><br/>
+            <input type="text" name="id"><br/>
+            <label>Mot de passe</label><br/>
+            <input type="password" name="mdp"><br/> 
+            <input type="submit" value="Connexion" name="btnConnexion"><br/><br/>
         </form>
     </div>
 </body>

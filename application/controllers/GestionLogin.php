@@ -6,7 +6,7 @@ class GestionLogin extends CI_Controller
         $this->load->model('Model_Login');
         $data['LesUser'] = $this->Model_Login->GetAllUser();
         $this->load->view('View_Login',$data);
-    }
 
+    }
 }
 ?>
