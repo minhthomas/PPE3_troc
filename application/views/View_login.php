@@ -39,9 +39,9 @@ if(isset($_GET['btnConnexion']))
 }
 ?>
     <div id="pagelogin">
-        <form method='get' action= >
+        <form method='get' action='index'>
             <label>Identifiant</label><br/>
-            <input type="text" name="id"><br/>
+            <input type="text" name="loginuser"><br/>
             <label>Mot de passe</label><br/>
             <input type="password" name="mdp"><br/> 
             <input type="submit" value="Connexion" name="btnConnexion"><br/><br/>
