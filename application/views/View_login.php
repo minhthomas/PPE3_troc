@@ -10,7 +10,7 @@
 <body>
 
     <div id="pagelogin">
-        <form method='get' action='index.php/GestionLogin/'>
+        <form role='form' method='get' action='index.php/GestionLogin/index.php'>
             <label>Identifiant</label><br/>
             <input type="text" name="loginuser"><br/>
             <label>Mot de passe</label><br/>
