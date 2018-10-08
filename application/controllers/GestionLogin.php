@@ -3,12 +3,10 @@ class GestionLogin extends CI_Controller
 {
     public function index()
     {
-        $this->load->library('form_validation');
-        $this->load->model('Model_Login');
         $this->load->view('View_Login');
     }
 
-    public function test()
+    public function login()
     {
         $this->load->model('Model_Login');
         // Récupérer form
@@ -20,5 +18,7 @@ class GestionLogin extends CI_Controller
             $this->load->view('View_Test');
         }
     }
+
+
 }
 ?>
