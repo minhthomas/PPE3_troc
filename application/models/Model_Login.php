@@ -5,6 +5,7 @@ class Model_Login extends CI_Model
     {
         $sql = $this->db->query('select idUser from user');
         return $sql->result();
+        
     }
     
 }
