@@ -10,12 +10,13 @@
 <body>
 
     <div id="pagelogin">
-        <form role='form' method='get' action='index.php/GestionLogin/index.php'>
+        <form role='form' method='get' action='index/GestionLogin/index.php'>
             <label>Identifiant</label><br/>
             <input type="text" name="loginuser"><br/>
             <label>Mot de passe</label><br/>
             <input type="password" name="mdp"><br/> 
             <input type="submit" value="Connexion" name="btnConnexion"><br/><br/>
+            <a href= <?php echo base_url() ?>View_login>Mot de passe oublié</a>
         </form>
     </div>
 </body>
