@@ -18,7 +18,5 @@ class GestionLogin extends CI_Controller
             $this->load->view('View_Test');
         }
     }
-
-
 }
 ?>

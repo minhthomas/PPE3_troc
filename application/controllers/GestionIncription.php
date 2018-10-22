@@ -55,11 +55,7 @@ class GestionIncription extends CI_Controller
                 }
             }
             $this->load->view('View_Inscription');
-
         }
-    
     }
-
-
 }
 ?>
