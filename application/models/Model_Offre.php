@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-class Model_Offre extends CI_Model
-{
-=======
 class Model_Offre extends CI_Model
 {
     public function GetAllIdOffre()
@@ -12,7 +7,6 @@ class Model_Offre extends CI_Model
         return $sql->result();
     }
     
->>>>>>> master
     public function getAllOffre($idUser)
     {
         $sql = $this->db->query("SELECT idOffre, descriptionOffre, dateOffre, nomService
