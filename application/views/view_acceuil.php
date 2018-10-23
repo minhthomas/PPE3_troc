@@ -66,7 +66,6 @@
     <div id="fenetreUpdate" class="cssFenetre">
         <div class="contentForm">
             <div id="updateForm"></div>
-            <span class="close">&times;</span>
         </div>
     </div>
     

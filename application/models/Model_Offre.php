@@ -1,7 +1,18 @@
 <?php
+<<<<<<< HEAD
 
 class Model_Offre extends CI_Model
 {
+=======
+class Model_Offre extends CI_Model
+{
+    public function GetAllIdOffre()
+    {
+        $sql = $this->db->query("select max(idOffre) as idoffre from offre");
+        return $sql->result();
+    }
+    
+>>>>>>> master
     public function getAllOffre($idUser)
     {
         $sql = $this->db->query("SELECT idOffre, descriptionOffre, dateOffre, nomService

@@ -43,20 +43,6 @@ padding: 10px;
     width: 80%;
 }
 
-.close {
-    color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: grey;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* CSS De la barre de navigation */
 ul{
     display: table;
