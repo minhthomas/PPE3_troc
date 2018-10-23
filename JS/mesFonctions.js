@@ -1,15 +1,10 @@
 function openUpdateWindow()
 {
     var modal = document.getElementById('fenetreUpdate');
-    var span = document.getElementsByClassName("close")[0];
 
     // Afficher la fenêtre
     modal.style.display = "block";
 
-    // Ferme la fenêtre lors du clique sur la croix (X)
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
     // Quand l'utilisateur clique en dehors de la fenêtre
     window.onclick = function(event) {
         if (event.target == modal) {
