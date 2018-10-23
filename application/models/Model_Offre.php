@@ -1,9 +1,9 @@
 <?php
 class Model_Offre extends CI_Model
 {
-    public function GetAllModel1()
+    public function GetAllIdOffre()
     {
-        $sql = $this->db->query("select max(idOffre) from offre");
+        $sql = $this->db->query("select max(idOffre) as idoffre from offre");
         return $sql->result();
     }
 }
