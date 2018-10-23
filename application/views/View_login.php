@@ -6,7 +6,6 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<<<<<<< HEAD
     
     <script src="<?php echo base_url(); ?>JQuery/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap-theme.css" />
@@ -18,16 +17,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page de connexion - Troc De Temps</title>
-=======
-    <script src="./Bootstrap/js/bootstrap.min.js"></script>
-    <script src="./Bootstrap/js/bootstrap.js"></script>
-    <link href="./Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <script src="<?php echo base_url() ?>./Css/style.css"></script>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
->>>>>>> 10f7f4d4dc6758ef0e957e0873713c3a2b929f3d
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 </head>
