@@ -41,7 +41,12 @@ foreach ($Lesoffres as $unoffre)
 <p>Nom du service</p>
 <br>
 <select>
-    <option></option>
+<?php
+foreach ($Lesserives as $unservice)
+{
+    
+}
+?>
 </select>
 
 

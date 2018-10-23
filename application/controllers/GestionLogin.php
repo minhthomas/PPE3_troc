@@ -6,8 +6,9 @@ class GestionLogin extends CI_Controller
 
         $this->load->model('Model_Offre');
         $data['Lesoffres'] = $this->Model_Offre->GetAllIdOffre();
+        $data['Lesservices'] = $this->Model_Offre->GetAllService();
         $this->load->view('View_CreationOffre', $data);
-        
+
     }
 
     public function login()
