@@ -2,18 +2,21 @@
 
 class Ctrl_Acceuil extends CI_Controller
 {
-    public function index()
+    public function setAcceuilView()
     {
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
         $this->load->model("Model_Offre");
-        $data['lesOffres'] = $this->Model_Offre->getAllOffre(1);
+        $data['lesOffres'] = $this->Model_Offre->getAllOffre($idOfConnectUser);
 
         $this->load->model("Model_Demande");
-        $data['lesDemandes'] = $this->Model_Demande->getAllDemande(1);
+        $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDeals'] = $this->Model_Deal->getAllDeals(1);
+        $data['lesDeals'] = $this->Model_Deal->getAllDeals($idOfConnectUser);
 
-        $this->load->view("view_acceuil", $data);
+        $this->load->view("View_acceuil", $data);
     }
 
     public function addInformationOffre()
@@ -21,7 +24,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesServices'] = $this->Model_Offre->getAllService();
 
-        $this->load->view("view_updateOffre", $data);
+        $this->load->view("View_updateOffre", $data);
     }
 
     public function setInformationOffre()
@@ -33,7 +36,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->setOffre($idOffre, $descOffre, $dateOffre);
 
-        $this->load->view("view_acceuil", $data);
+        $this->load->view("View_acceuil", $data);
     }
 
     public function addInformationDemande()
@@ -41,7 +44,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesServices'] = $this->Model_Demande->getAllService();
 
-        $this->load->view("view_updateDemande", $data);
+        $this->load->view("View_updateDemande", $data);
     }
 
     public function setInformationDemande()
@@ -53,7 +56,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesOffres'] = $this->Model_Demande->setOffre($idDemande, $descDemande, $dateDemande);
 
-        $this->load->view("view_acceuil", $data);
+        $this->load->view("View_acceuil", $data);
     }
 }
 
