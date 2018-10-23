@@ -6,6 +6,7 @@ class Model_Offre extends CI_Model
         $sql = $this->db->query("select max(idOffre) as idoffre from offre");
         return $sql->result();
     }
+<<<<<<< HEAD
     
     public function getAllOffre($idUser)
     {
@@ -26,6 +27,8 @@ class Model_Offre extends CI_Model
     {
         $sql = $this->db->query("UPDATE offre SET descriptionOffre = '".$descOffre."', dateOffre = '".$dateOffre."' WHERE idOffre = ".$idOffre);
     }
+=======
+>>>>>>> 10f7f4d4dc6758ef0e957e0873713c3a2b929f3d
 }
 
 ?>

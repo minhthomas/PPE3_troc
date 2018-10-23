@@ -78,7 +78,11 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
+<<<<<<< HEAD
 	'database' => 'trocdetemps',
+=======
+	'database' => 'ppe3',
+>>>>>>> 10f7f4d4dc6758ef0e957e0873713c3a2b929f3d
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
