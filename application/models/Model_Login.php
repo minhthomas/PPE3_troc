@@ -5,6 +5,6 @@ class Model_Login extends CI_Model
     {
         $sql = $this->db->query("select idUser,login,mdp from user where login ='".$loginuser."' and mdp = '".$password."'");
         return $sql->result();
-    } 
+    }  
 }
 ?>
