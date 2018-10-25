@@ -4,10 +4,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-<<<<<<< HEAD
 
-=======
->>>>>>> 10f7f4d4dc6758ef0e957e0873713c3a2b929f3d
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -16,7 +14,6 @@ html {
 body {
   margin: 0;
 }
-<<<<<<< HEAD
 
 
 #pTotal{
@@ -25,8 +22,6 @@ body {
     font-size: 200px;
 }
 
-=======
->>>>>>> 10f7f4d4dc6758ef0e957e0873713c3a2b929f3d
 article,
 aside,
 details,
