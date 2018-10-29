@@ -54,6 +54,7 @@
     <div class="fondDemande">
     <h1 id='Demandes'>Mes Demandes  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddDemande">+</a>'?></h1>             
     </div>
+    <hr>
     <div class="cssDivDemande" id='divDemande'>
         <?php
             foreach ($lesDemandes as $uneDemande)
