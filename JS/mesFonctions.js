@@ -26,12 +26,13 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/addInformationOffre",
+            url:"index.php/Ctrl_Acceuil/addInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
-                $("#updateForm").empty();
-                $("#updateForm").append(data);
+                // alert(data);
+                $("#divUpdateForm").empty();
+                $("#divUpdateForm").append(data);
                 openUpdateWindow();
             },
             error:function()
@@ -42,6 +43,9 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     )
 }
 
+// Marche pour les premières offres ET demandes MAIS
+// Ne marche pas pour les dernières offres ET Demandes ?
+// (?? Uncaught SyntaxError: missing ) after argument list ??)
 function updateOffre()
 {
     var idOffre = $('#numOffre').val();
@@ -53,7 +57,7 @@ function updateOffre()
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/setInformationOffre",
+            url:"index.php/Ctrl_Acceuil/setInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
@@ -74,12 +78,14 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/addInformationDemande",
+            url:"index.php/Ctrl_Acceuil/addInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
-                $("#updateForm").empty();
-                $("#updateForm").append(data);
+                // alert(data);
+                // alert("descriptionDemande : "+descriptionDemande);
+                $("#divUpdateForm").empty();
+                $("#divUpdateForm").append(data);
                 openUpdateWindow();
             },
             error:function()
@@ -90,6 +96,8 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     )
 }
 
+// Même problème que offre ??
+// Se référer aux commentaires de updateOffre
 function updateDemande()
 {
     var idDemande = $('#numDemande').val();
@@ -101,7 +109,7 @@ function updateDemande()
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/setInformationDemande",
+            url:"index.php/Ctrl_Acceuil/setInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
@@ -111,6 +119,71 @@ function updateDemande()
             error:function()
             {
                 alert("Erreur de la modification de l'offre");
+            }
+        }
+    )
+}
+
+function addOffre()
+{
+    // var txtnextidoffre = $('#txtnextidoffre').val();
+    // var txtadddescOffre = $('#txtadddescOffre').val();
+    // var idservice = $('#idservice').val();
+
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertOffre",
+            data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
+            success:function(data)
+            {
+                alert("Insert ok");
+            },
+            error:function()
+            {
+                alert("Erreur de la modification de l'offre");
+            }
+        }
+    );
+}
+
+function addDemande()
+{
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertDemande",
+            data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
+            success:function(data)
+            {
+                alert("Insert ok");
+            },
+            error:function()
+            {
+                alert("Erreur de la modification de l'offre");
+            }
+            
+        }
+    );
+}
+
+function deconnection()
+{
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"index.php/GestionLogin/Logout",
+            data:"",
+            success:function(data)
+            {
+                alert("Déconnection OK");
+            },
+            error:function()
+            {
+                alert("Erreur lors de la déconnection");
             }
         }
     )

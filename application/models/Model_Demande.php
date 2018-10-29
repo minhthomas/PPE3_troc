@@ -19,7 +19,28 @@ class Model_Demande extends CI_Model
 
     public function setOffre($idDemande, $descDemande, $dateDemande)
     {
-        $sql = $this->db->query("UPDATE demande SET descriptionDemande = '".$descDemande."', dateDemande = '".$dateDemande."' WHERE idDemande = ".$idDemande);
+        $sql = $this->db->query("UPDATE demande 
+        SET descriptionDemande = '".$descDemande."', 
+        dateDemande = '".$dateDemande."' 
+        WHERE idDemande = ".$idDemande);
+    }
+
+    public function addIdDemande()
+    {
+        $sql = $this->db->query("select max(idDemande) + 1 as iddemande from demande");
+        return $sql->result();
+    }
+
+    public function insertDemande($txtnextdemande, $txtadddescDemande, $idservice, $idUser)
+    {
+        $data = array(
+            'idDemande' => $txtnextdemande,
+            'descriptionDemande' => $txtadddescDemande,
+            'dateDemande' => date('y-m-d'),
+            'idService' => $idservice,
+            'idUser' => $idUser,
+        );
+        $this->db->insert('demande',$data);
     }
 }
 

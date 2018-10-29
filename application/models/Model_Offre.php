@@ -1,9 +1,9 @@
 <?php
 class Model_Offre extends CI_Model
 {
-    public function GetAllIdOffre()
+    public function addIdOffre()
     {
-        $sql = $this->db->query("select max(idOffre) as idoffre from offre");
+        $sql = $this->db->query("select max(idOffre) + 1 as idoffre from offre");
         return $sql->result();
     }
     
@@ -24,7 +24,22 @@ class Model_Offre extends CI_Model
 
     public function setOffre($idOffre, $descOffre, $dateOffre)
     {
-        $sql = $this->db->query("UPDATE offre SET descriptionOffre = '".$descOffre."', dateOffre = '".$dateOffre."' WHERE idOffre = ".$idOffre);
+        $sql = $this->db->query("UPDATE offre 
+        SET descriptionOffre = '".$descOffre."', 
+        dateOffre = '".$dateOffre."' 
+        WHERE idOffre = ".$idOffre);
+    }
+
+    public function insertOffre($txtnextidoffre, $txtadddescOffre, $idservice, $idUser)
+    {
+        $data = array(
+            'idOffre' => $txtnextidoffre,
+            'descriptionOffre' => $txtadddescOffre,
+            'dateOffre' => date('y-m-d'),
+            'idService' => $idservice,
+            'idUser' => $idUser,
+        );
+        $this->db->insert('offre',$data);
     }
 }
 

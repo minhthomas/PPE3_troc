@@ -3,7 +3,7 @@ class GestionLogin extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('View_login');   
+        $this->load->view('View_login');
     }
 
     public function login()
@@ -22,8 +22,8 @@ class GestionLogin extends CI_Controller
 
             $infosUser = array(
                 'idUser'  => $data['infosUser'][0]->idUser,
-                'login'     => $data['infosUser'][0]->login,
-                'mdp' => $data['infosUser'][0]->mdp
+                'nomUser'     => $data['infosUser'][0]->nomUser,
+                'photoUser'     => $data['infosUser'][0]->photoUser,
             );
         
             $this->session->set_userdata('allInfosUser', $infosUser);
@@ -37,5 +37,72 @@ class GestionLogin extends CI_Controller
             $this->load->view('View_login');
         }
     }
+    
+    public function Logout()
+    {
+        // La suppresion de la session se passe bien mais la page GestionLogin n'apparait pas ?
+        $this->load->library('session');
+        $this->session->sess_destroy();
+
+        header("Location:".base_url()."index.php/GestionLogin/");
+    }
+
+    public function openinscription()
+    {
+        $this->load->view('View_Inscription');
+    }
+
+    public function inscription()
+    {
+        if(isset($_GET['btnInscription']))
+        {
+        $txtnom = $this->input->get('txtnom');
+        $txtprenom = $this->input->get('txtprenom');
+        $txtlogin = $this->input->get('txtlogin');
+        $txtmdp = $this->input->get('txtmdp');
+        $txtmdpconfirmer = $this->input->get('txtmdpconfirmer');
+        // var_dump($txtnom , $txtprenom, $txtlogin, $txtmdp);
+            if($txtnom == "")
+            {
+                echo "Nom n'existe";
+            }
+            else
+            {
+                if($txtprenom == "")
+                {
+                    echo "Prenom n'existe";
+                }
+                else
+                {
+                    if($txtlogin == "")
+                    {
+                        echo "Login n'existe";
+                    }
+                    else
+                    {
+                        if($txtmdp == "")
+                        {
+                            echo "Mdp n'existe";
+                        }
+                        else
+                        {
+                            if($txtmdp != $txtmdpconfirmer)
+                            {
+                                echo "Votre mdp n'est pas correct";
+                            }
+                            else
+                            {
+                                $nomUser = $txtnom. " " .$txtprenom;
+                                $this->load->model('Model_Inscription');
+                                $this->Model_Inscription->AddAllUser($nomUser,$txtlogin,$txtmdp);
+                            }
+                        }
+                    }
+                }
+            }
+            $this->load->view('View_Inscription');
+        }
+    }
 }
+
 ?>
