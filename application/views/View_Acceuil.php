@@ -22,8 +22,11 @@
         <li id="nav-deco"><a href="#">Déconnexion</a></li>
     </ul>
 
-    <h1 id='Offres'>Mes Offres</h1>
-    <?php echo '<a href="'.base_url().'index.php/Ctrl_Acceuil/setAddOffre">Ajouter</a>'?>
+    
+    <div class="fondDemande">
+    <h1 id='Offres'>Mes Offres  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddOffre">+</a>'?></h1>             
+    </div>
+   
     <hr>
     <div class="cssDivOffre" id='divOffre'>
         <?php
@@ -41,9 +44,10 @@
         <br>
     </div>
 
-    <h1 id='Demandes'>Mes Demandes</h1>
-    <?php echo '<a href="'.base_url().'index.php/Ctrl_Acceuil/setAddDemande">Ajouter</a>'?>
-    <hr>
+
+    <div class="fondDemande">
+    <h1 id='Demandes'>Mes Demandes  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddDemande">+</a>'?></h1>             
+    </div>
     <div class="cssDivDemande" id='divDemande'>
         <?php
             foreach ($lesDemandes as $uneDemande)

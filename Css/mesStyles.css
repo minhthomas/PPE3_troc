@@ -89,3 +89,19 @@ ul li a:active{
     background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1)); 
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
+
+/* Css bouton ajouter offre et demande */
+.fondDemande{
+    width: 270px;
+    border-bottom: 2px solid  rgb(216, 63, 29);
+}
+
+.lienplus
+{
+    width: 40px;
+    position: absolute;
+    text-align: center;
+    border-radius: 500%;
+    background-color:   rgb(34, 8, 179)  ;
+
+}
