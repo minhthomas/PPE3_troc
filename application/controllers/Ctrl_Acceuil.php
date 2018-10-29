@@ -1,5 +1,5 @@
 <?php
-
+// aloalo
 class Ctrl_Acceuil extends CI_Controller
 {
     public function setAcceuilView()
