@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form method='get' action='<?php echo base_url()?>index.php/GestionLogin/inscription'>
-                    <h2>Please Sign Up </h2>
+                    <h2>Veuillez Vous Inscrire</h2>
                         <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -61,7 +61,7 @@
                                     <input type='submit' value='Inscription' name='btnInscription' class="btn btn-primary btn-block btn-lg">  
                                 </div>
                                 <div class="col-xs-6 col-md-6">
-                                    <?php echo '<a href="'.base_url().'index.php/GestionLogin/index" class="btn btn-success btn-block btn-lg" >Sign In</a>'?>
+                                    <?php echo '<a href="'.base_url().'index.php/GestionLogin/index" class="btn btn-success btn-block btn-lg" >Se Connecter</a>'?>
                                 </div>
                             </div>
             </form>

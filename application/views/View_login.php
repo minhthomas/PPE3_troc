@@ -47,7 +47,7 @@
                     <!-- Bouton Inscription -->
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <form  method='get' action='<?php echo base_url() ?>index.php/GestionLogin/openinscription'>
-                                <input type="submit" value="Incripition" name="btnIncripition" class="btn btn-lg btn-primary btn-block">
+                                <input type="submit" value="Incription" name="btnIncripition" class="btn btn-lg btn-primary btn-block">
                             </form>
                         </div>
                     </div>

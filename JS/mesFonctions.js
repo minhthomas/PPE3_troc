@@ -135,7 +135,7 @@ function addOffre()
     (
         {
             type:"get",
-            url:"http://localhost/SIO2/PPE3/index.php/Ctrl_Acceuil/insertOffre",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertOffre",
             data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
             success:function(data)
             {
@@ -155,7 +155,7 @@ function addDemande()
     (
         {
             type:"get",
-            url:"http://localhost/SIO2/PPE3/index.php/Ctrl_Acceuil/insertDemande",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertDemande",
             data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
             success:function(data)
             {
