@@ -125,27 +125,47 @@ function updateDemande()
     )
 }
 
-function deconnection()
+function addOffre()
+{
+    // var txtnextidoffre = $('#txtnextidoffre').val();
+    // var txtadddescOffre = $('#txtadddescOffre').val();
+    // var idservice = $('#idservice').val();
+
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"http://localhost/SIO2/PPE3/index.php/Ctrl_Acceuil/insertOffre",
+            data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
+            success:function(data)
+            {
+                alert("Insert ok");
+            },
+            error:function()
+            {
+                alert("Erreur de la modification de l'offre");
+            }
+        }
+    );
+}
+
+function addDemande()
 {
     $.ajax
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/GestionLogin/Logout",
-            data:"",
+            url:"http://localhost/SIO2/PPE3/index.php/Ctrl_Acceuil/insertDemande",
+            data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
             success:function(data)
             {
-                alert("Déconnection OK");
+                alert("Insert ok");
             },
             error:function()
             {
-                alert("Erreur lors de la déconnection");
+                alert("Erreur de la modification de l'offre");
             }
+            
         }
-    )
-}
-
-function AfficherDeals()
-{
-    alert("Non fonctionnel pour le moment !");
+    );
 }

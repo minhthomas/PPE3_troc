@@ -22,41 +22,38 @@
 </head>
 <body>
 <div class="container">
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form  method='get' action='<?php echo base_url() ?>index.php/GestionLogin/login'>
+                <fieldset>
+                    <h2>Please Sign In</h2>
+                    <hr class="colorgraph">
+                    <!-- Input Identifiant -->
+                    <div class="form-group">
+                        <input type="text" placeholder="Identifiant" name="loginuser" class="form-control input-lg">
+                    </div>
+                    <!-- Input Mot de Pass -->
+                    <div class="form-group">
+                        <input type="password" placeholder="Mot De Passe" name="mdp" class="form-control input-lg">
+                    </div>
+                    <!-- Bouton connexion -->
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" value="Connexion" name="btnConnexion" class="btn btn-lg btn-success btn-block">
+                        </div>
 
-<div class="row" style="margin-top:20px">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <form  method='get' action='<?php echo base_url() ?>index.php/GestionLogin/login'>
-            <fieldset>
-                <h2>Please Sign In</h2>
-                <hr class="colorgraph">
-                <!-- Input Identifiant -->
-                <div class="form-group">
-                    <input type="text" placeholder="Identifiant" name="loginuser" class="form-control input-lg">
-                </div>
-                <!-- Input Mot de Pass -->
-                <div class="form-group">
-                    <input type="password" placeholder="Mot De Passe" name="mdp" class="form-control input-lg">
-                </div>
-                <!-- Bouton connexion -->
-                <hr class="colorgraph">
-                <div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" value="Connexion" name="btnConnexion" class="btn btn-lg btn-success btn-block">
-					</div>
-
-        </form>
-                <!-- Bouton Inscription -->
-
-					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <form  method='get' action='<?php echo base_url() ?>index.php/GestionIncription/openinscription'>
-                            <input type="submit" value="Incripition" name="btnIncripition" class="btn btn-lg btn-primary btn-block">
-                        </form>
-					</div>
-                </div>
-            </fieldset>
-	</div>
-</div>
-
+            </form>
+                    <!-- Bouton Inscription -->
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <form  method='get' action='<?php echo base_url() ?>index.php/GestionLogin/openinscription'>
+                                <input type="submit" value="Incripition" name="btnIncripition" class="btn btn-lg btn-primary btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </fieldset>
+        </div>
+    </div>
 </div>
         
 
