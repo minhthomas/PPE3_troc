@@ -14,9 +14,12 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDeals'] = $this->Model_Deal->getAllDeals($idOfConnectUser);
+        $data['lesDeals'] = $this->Model_Deal->getAllDealsAndServiceUser1($idOfConnectUser);
 
-        $this->load->view("View_acceuil", $data);
+        $this->load->model("Model_Deal");
+        $data['leServiceUser2'] = $this->Model_Deal->getServiceUser2($idOfConnectUser);
+
+        $this->load->view("View_Acceuil", $data);
     }
 
     public function addInformationOffre()
@@ -24,7 +27,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesServices'] = $this->Model_Offre->getAllService();
 
-        $this->load->view("View_updateOffre", $data);
+        $this->load->view("View_UpdateOffre", $data);
     }
 
     public function setInformationOffre()
@@ -36,7 +39,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->setOffre($idOffre, $descOffre, $dateOffre);
 
-        $this->load->view("View_acceuil", $data);
+        $this->load->view("View_Acceuil", $data);
     }
 
     public function addInformationDemande()
@@ -44,7 +47,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesServices'] = $this->Model_Demande->getAllService();
 
-        $this->load->view("View_updateDemande", $data);
+        $this->load->view("View_UpdateDemande", $data);
     }
 
     public function setInformationDemande()
@@ -56,7 +59,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesOffres'] = $this->Model_Demande->setOffre($idDemande, $descDemande, $dateDemande);
 
-        $this->load->view("View_acceuil", $data);
+        $this->load->view("View_Acceuil", $data);
     }
 }
 
