@@ -63,6 +63,36 @@
     <h1 id='Deals'>Mes Deals</h1>
     <hr>
     <div class="cssDivDeals" id='divDeals'>
+        <?php
+            // var_dump($lesDeals);
+            // var_dump($leServiceUser2);
+            $i=0;
+            foreach ($lesDeals as $unDeal)
+            {
+        ?>
+                    <div class="cssDivDeals2">
+                        <p class="infos_Deals">
+                            <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
+                            <strong><?php echo $unDeal->nomUser ?></strong><br>
+                            <?php echo $unDeal->dateDeal; ?>
+
+                            <?php echo $unDeal->nomService ?><br> 
+                            vs<br>
+
+                            <?php 
+                                echo $leServiceUser2[$i]->nomService; 
+                                $i++;
+                            ?>
+                            
+                            <br>
+                            <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
+                            <input type='button' value='Afficher' onclick='AfficherDeals()'>
+                        </p>
+                    </div>
+        <?php
+            }
+        ?>
+        <br>
     </div>
 
     <div id="fenetreUpdate" class="cssFenetre">
