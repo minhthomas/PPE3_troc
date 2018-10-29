@@ -169,3 +169,23 @@ function addDemande()
         }
     );
 }
+
+function deconnection()
+{
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/GestionLogin/Logout",
+            data:"",
+            success:function(data)
+            {
+                alert("Déconnection OK");
+            },
+            error:function()
+            {
+                alert("Erreur lors de la déconnection");
+            }
+        }
+    )
+}
