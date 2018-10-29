@@ -30,6 +30,8 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
+                // alert(data);
+                // alert("descriptionOffre : "+descriptionOffre);
                 $("#updateForm").empty();
                 $("#updateForm").append(data);
                 openUpdateWindow();
@@ -42,6 +44,9 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     )
 }
 
+// Marche pour les premières offres ET demandes MAIS
+// Ne marche pas pour les dernières offres ET Demandes ?
+// (?? Uncaught SyntaxError: missing ) after argument list ??)
 function updateOffre()
 {
     var idOffre = $('#numOffre').val();
@@ -78,6 +83,8 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
+                // alert(data);
+                // alert("descriptionDemande : "+descriptionDemande);
                 $("#updateForm").empty();
                 $("#updateForm").append(data);
                 openUpdateWindow();
@@ -90,6 +97,8 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     )
 }
 
+// Même problème que offre ??
+// Se référer aux commentaires de updateOffre
 function updateDemande()
 {
     var idDemande = $('#numDemande').val();
@@ -114,4 +123,29 @@ function updateDemande()
             }
         }
     )
+}
+
+function deconnection()
+{
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"http://localhost/BTS2/PPE3_troc/index.php/GestionLogin/Logout",
+            data:"",
+            success:function(data)
+            {
+                alert("Déconnection OK");
+            },
+            error:function()
+            {
+                alert("Erreur lors de la déconnection");
+            }
+        }
+    )
+}
+
+function AfficherDeals()
+{
+    alert("Non fonctionnel pour le moment !");
 }

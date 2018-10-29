@@ -1,52 +1,22 @@
-.cssDivOffre{
-    display: -webkit-box;
-}
-.cssDivOffre2{
-    padding: 10px;
+body{
+    background-color: #d80303 !important;
+    /* color: white !important; */
 }
 
-.cssDivDemande{
-    display: -webkit-box;
+/* CSS Bandeau */
+.infosConnectUser{
+    text-align: center;
 }
-.cssDivDemande2{
-    padding: 10px;
+.img_user{
+    width: 20px;
 }
-
-.cssDivDeals{
-    display: -webkit-box;
+.welcome_user{
+    float: left;
+    height: 0px;
 }
-.cssDivDeals2{
-padding: 10px;
-}
-
-/* CSS de la fenetre UPDATE */
-.cssFenetre {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* CSS contenu fenêtre */
-.contentForm {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* CSS De la barre de navigation */
 ul{
     display: table;
-    width: 500px;
+    width: 600px;
     margin: 30px auto;
     padding: 0;
     background: #d9534f;
@@ -88,4 +58,95 @@ ul li a:focus{
 ul li a:active{
     background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1)); 
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
+}
+
+
+/* CSS Offres */
+.cssDivOffre{
+    display: -webkit-box;
+}
+.cssDivOffre2{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 300px;
+    height: 130px;
+}
+.infos_Offre{
+    float: right;
+    width: 200px;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+.fa-heart:before {
+    content: "\f004";
+    float: left;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+
+/* CSS Demandes */
+.cssDivDemande{
+    display: -webkit-box;
+}
+.cssDivDemande2{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 300px;
+    height: 130px;
+}
+.infos_Demande{
+    float: right;
+    width: 200px;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+.fa-flag:before {
+    content: "\f024";
+    float: left;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+/* CSS Deals */
+.cssDivDeals{
+    display: -webkit-box;
+}
+.cssDivDeals2{
+    text-align: center;
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+}
+.infos_Deals{
+    float: right;
+    width: 100px;
+    margin-top: 5px;
+}
+.creator_deal{
+    width: 70px;
+}
+
+/* CSS de la fenetre UPDATE */
+.cssFenetre {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.contentForm {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }

@@ -24,7 +24,10 @@ class Model_Offre extends CI_Model
 
     public function setOffre($idOffre, $descOffre, $dateOffre)
     {
-        $sql = $this->db->query("UPDATE offre SET descriptionOffre = '".$descOffre."', dateOffre = '".$dateOffre."' WHERE idOffre = ".$idOffre);
+        $sql = $this->db->query("UPDATE offre 
+        SET descriptionOffre = '".$descOffre."', 
+        dateOffre = '".$dateOffre."' 
+        WHERE idOffre = ".$idOffre);
     }
 }
 

@@ -14,7 +14,10 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDeals'] = $this->Model_Deal->getAllDeals($idOfConnectUser);
+        $data['lesDeals'] = $this->Model_Deal->getAllDealsAndServiceUser1($idOfConnectUser);
+
+        $this->load->model("Model_Deal");
+        $data['leServiceUser2'] = $this->Model_Deal->getServiceUser2($idOfConnectUser);
 
         $this->load->view("View_Acceuil", $data);
     }
