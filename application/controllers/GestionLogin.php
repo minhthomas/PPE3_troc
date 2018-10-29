@@ -3,25 +3,96 @@ class GestionLogin extends CI_Controller
 {
     public function index()
     {
-
-        $this->load->model('Model_Offre');
-        $data['Lesoffres'] = $this->Model_Offre->GetAllIdOffre();
-        $data['Lesservices'] = $this->Model_Offre->GetAllService();
-        $this->load->view('View_CreationOffre', $data);
-
+        $this->load->view('View_login');   
     }
 
     public function login()
     {
         $this->load->model('Model_Login');
+        
         // Récupérer form
         $loginuser = $this->input->get('loginuser');
         $password = $this->input->get('mdp');
-        $data['LesUser'] = $this->Model_Login->GetAllUser($loginuser,$password);
-        if(count($data) != 0)
+
+        $data['infosUser'] = $this->Model_Login->GetAllUser($loginuser,$password);
+        
+        if(count($data['infosUser']) != 0)
         {
-            $this->load->view('View_Test');
+            $this->load->library('session');
+            $infosUser = array(
+                'idUser'  => $data['infosUser'][0]->idUser,
+                'login'     => $data['infosUser'][0]->login,
+                'mdp' => $data['infosUser'][0]->mdp
+            );
+        
+            $this->session->set_userdata('allInfosUser', $infosUser);
+
+            // var_dump($_SESSION['allInfosUser']);
+        
+            header("Location:".base_url()."index.php/Ctrl_Acceuil/setAcceuilView/");
+        }
+        else {
+            echo "Identifiants ou mot de passe incorrect.";
+            $this->load->view('View_login');
+        }
+    }
+
+    public function openinscription()
+    {
+        $this->load->view('View_Inscription');
+    }
+
+    public function inscription()
+    {
+        if(isset($_GET['btnInscription']))
+        {
+        $txtnom = $this->input->get('txtnom');
+        $txtprenom = $this->input->get('txtprenom');
+        $txtlogin = $this->input->get('txtlogin');
+        $txtmdp = $this->input->get('txtmdp');
+        $txtmdpconfirmer = $this->input->get('txtmdpconfirmer');
+        // var_dump($txtnom , $txtprenom, $txtlogin, $txtmdp);
+            if($txtnom == "")
+            {
+                echo "Nom n'existe";
+            }
+            else
+            {
+                if($txtprenom == "")
+                {
+                    echo "Prenom n'existe";
+                }
+                else
+                {
+                    if($txtlogin == "")
+                    {
+                        echo "Login n'existe";
+                    }
+                    else
+                    {
+                        if($txtmdp == "")
+                        {
+                            echo "Mdp n'existe";
+                        }
+                        else
+                        {
+                            if($txtmdp != $txtmdpconfirmer)
+                            {
+                                echo "Votre mdp n'est pas correct";
+                            }
+                            else
+                            {
+                                $nomUser = $txtnom. " " .$txtprenom;
+                                $this->load->model('Model_Inscription');
+                                $this->Model_Inscription->AddAllUser($nomUser,$txtlogin,$txtmdp);
+                            }
+                        }
+                    }
+                }
+            }
+            $this->load->view('View_Inscription');
         }
     }
 }
+
 ?>
