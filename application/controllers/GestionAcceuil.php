@@ -1,4 +1,6 @@
 <?php
+
+// aloalo
 class GestionAcceuil extends CI_Controller
 {
     public function index()
