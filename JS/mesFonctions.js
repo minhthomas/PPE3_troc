@@ -26,7 +26,7 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/addInformationOffre",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/addInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
@@ -58,7 +58,7 @@ function updateOffre()
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/setInformationOffre",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/setInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
@@ -79,7 +79,7 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/addInformationDemande",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/saddInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
@@ -110,7 +110,7 @@ function updateDemande()
     (
         {
             type:"get",
-            url:"http://localhost/BTS2/PPE3_troc/index.php/Ctrl_Acceuil/setInformationDemande",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/setInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
