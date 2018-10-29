@@ -79,7 +79,7 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     (
         {
             type:"get",
-            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/saddInformationDemande",
+            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/addInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {

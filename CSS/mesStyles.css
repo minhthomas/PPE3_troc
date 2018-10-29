@@ -150,3 +150,18 @@ ul li a:active{
     border: 1px solid #888;
     width: 80%;
 }
+/* Css bouton ajouter offre et demande */
+.fondDemande{
+    width: 270px;
+    border-bottom: 2px solid  rgb(216, 63, 29);
+}
+
+.lienplus
+{
+    width: 40px;
+    position: absolute;
+    text-align: center;
+    border-radius: 500%;
+    background-color:   rgb(34, 8, 179)  ;
+
+}
