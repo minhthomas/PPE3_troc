@@ -30,7 +30,7 @@ class GestionLogin extends CI_Controller
 
             // var_dump($_SESSION['allInfosUser']);
         
-            header("Location:".base_url()."index.php/Ctrl_Acceuil/setAcceuilView/");
+            header("Location:".base_url()."index.php/Ctrl_Acceuil/");
         }
         else {
             echo "Identifiants ou mot de passe incorrect.";

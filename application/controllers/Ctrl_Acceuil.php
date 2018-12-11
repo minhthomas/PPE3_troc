@@ -1,7 +1,7 @@
 <?php
 class Ctrl_Acceuil extends CI_Controller
 {
-    public function setAcceuilView()
+    public function index()
     {
         $this->load->library('session');
         $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];

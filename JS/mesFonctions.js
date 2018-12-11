@@ -26,7 +26,7 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     (
         {
             type:"get",
-            url:"index.php/Ctrl_Acceuil/addInformationOffre",
+            url:"addInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
@@ -57,7 +57,7 @@ function updateOffre()
     (
         {
             type:"get",
-            url:"index.php/Ctrl_Acceuil/setInformationOffre",
+            url:"setInformationOffre",
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
@@ -78,7 +78,7 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     (
         {
             type:"get",
-            url:"index.php/Ctrl_Acceuil/addInformationDemande",
+            url:"addInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
@@ -109,7 +109,7 @@ function updateDemande()
     (
         {
             type:"get",
-            url:"index.php/Ctrl_Acceuil/setInformationDemande",
+            url:"setInformationDemande",
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
@@ -134,7 +134,7 @@ function addOffre()
     (
         {
             type:"get",
-            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertOffre",
+            url:"insertOffre",
             data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
             success:function(data)
             {
@@ -154,7 +154,7 @@ function addDemande()
     (
         {
             type:"get",
-            url:"http://localhost/SIO2/PPE3/PPE3_troc/index.php/Ctrl_Acceuil/insertDemande",
+            url:"insertDemande",
             data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
             success:function(data)
             {
