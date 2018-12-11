@@ -1,6 +1,6 @@
 body{
     background-color: #d80303 !important;
-    /* color: white !important; */
+    color: white !important;
 }
 
 /* CSS Bandeau */
@@ -164,4 +164,8 @@ ul li a:active{
     border-radius: 500%;
     background-color:   rgb(34, 8, 179)  ;
 
+}
+
+.contentForm{
+    background-color: #d80303 !important;
 }
