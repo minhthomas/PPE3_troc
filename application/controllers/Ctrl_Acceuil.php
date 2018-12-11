@@ -59,6 +59,7 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesOffres'] = $this->Model_Demande->setOffre($idDemande, $descDemande, $dateDemande);
 
         $this->load->view("View_Acceuil", $data);
+<<<<<<< HEAD
     }
     
     public function setAddOffre()
@@ -106,6 +107,8 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model('Model_Demande');
         $data['LesDemandes'] = $this->Model_Demande->insertDemande($txtnextdemande, $txtadddescDemande, $idservice, $idOfConnectUser);
         $this->load->view('view_insertdemande');
+=======
+>>>>>>> 208f8027ee3b1575f5e17a546e9842184e6b8385
     }
 }
 

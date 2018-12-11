@@ -188,3 +188,8 @@ function deconnection()
         }
     )
 }
+
+function AfficherDeals()
+{
+    alert("Non fonctionnel pour le moment !");
+}

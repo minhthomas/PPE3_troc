@@ -10,6 +10,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>CSS/mesStyles.css" />
+
+    <!-- CSS Pour les icones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    
     <!-- CSS Pour les icones -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script src="<?php echo base_url() ?>JS/mesFonctions.js"></script>
@@ -30,7 +34,7 @@
 
     
     <div class="fondDemande">
-    <h1 id='Offres'>Mes Offres  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddOffre">+</a>'?></h1>             
+        <h1 id='Offres'>Mes Offres  <?php echo "<a class='lienplus' href='".base_url()."'index.php/Ctrl_Acceuil/setAddOffre'>+</a>" ?></h1>
     </div>
    
     <hr>
@@ -40,9 +44,12 @@
             { 
         ?>
                 <div class="cssDivOffre2" onclick="openWindowOffre('<?php echo $uneOffre->idOffre ?>', '<?php echo $uneOffre->nomService ?>', '<?php echo $uneOffre->descriptionOffre ?>', '<?php echo $uneOffre->dateOffre ?>')">
-                    <p class=""><?php echo $uneOffre->nomService ?></p>
-                    <p class=""><?php echo $uneOffre->descriptionOffre ?></p>
-                    <p class=""><?php echo $uneOffre->dateOffre; ?></p>
+                    <i class="far fa-heart fa-2x"></i>
+                    <p class="infos_Offre">
+                        <strong><?php echo $uneOffre->nomService ?></strong><br>
+                        <?php echo $uneOffre->descriptionOffre ?><br>
+                        <?php echo $uneOffre->dateOffre; ?>
+                    </p>
                 </div>
         <?php    
             }
@@ -52,7 +59,7 @@
 
 
     <div class="fondDemande">
-    <h1 id='Demandes'>Mes Demandes  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddDemande">+</a>'?></h1>             
+        <h1 id='Demandes'>Mes Demandes  <?php echo "<a class='lienplus' href='".base_url()."'index.php/Ctrl_Acceuil/setAddDemande'>+</a>" ?></h1>             
     </div>
     <hr>
     <div class="cssDivDemande" id='divDemande'>
@@ -61,9 +68,12 @@
             { 
         ?>
                 <div class="cssDivDemande2" onclick="openWindowDemande('<?php echo $uneDemande->idDemande ?>', '<?php echo $uneDemande->nomService ?>', '<?php echo $uneDemande->descriptionDemande ?>', '<?php echo $uneDemande->dateDemande ?>')">
-                    <p class=""><?php echo $uneDemande->nomService ?></p>
-                    <p class=""><?php echo $uneDemande->descriptionDemande ?></p>
-                    <p class=""><?php echo $uneDemande->dateDemande; ?></p>
+                    <i class="far fa-flag fa-2x"></i>
+                    <p class="infos_Demande">
+                        <strong><?php echo $uneDemande->nomService ?></strong><br>
+                        <?php echo $uneDemande->descriptionDemande ?><br>
+                        <?php echo $uneDemande->dateDemande; ?>
+                    </p>
                 </div>
         <?php    
             }
