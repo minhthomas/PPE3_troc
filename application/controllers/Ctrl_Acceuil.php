@@ -26,6 +26,11 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesServices'] = $this->Model_Offre->getAllService();
 
+        echo $_GET['idOffre']."\n";
+        echo $_GET['nomServ']."\n";
+        echo $_GET['descOffre']."\n";
+        echo $_GET['dateOffre']."\n";
+
         $this->load->view("View_UpdateOffre", $data);
     }
 
@@ -45,6 +50,11 @@ class Ctrl_Acceuil extends CI_Controller
     {
         $this->load->model("Model_Demande");
         $data['lesServices'] = $this->Model_Demande->getAllService();
+
+        echo $_GET['idDemande']."\n";
+        echo $_GET['nomServ']."\n";
+        echo $_GET['descDemande']."\n";
+        echo $_GET['dateDemande']."\n";
 
         $this->load->view("View_UpdateDemande", $data);
     }

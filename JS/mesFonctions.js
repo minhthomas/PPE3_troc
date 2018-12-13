@@ -21,7 +21,11 @@ function CloseWindow()
 
 function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
 {
-    // alert(idOffre +" - " + nomService +" - " + descriptionOffre +" - " + dateOffre);
+    console.log("idOffre->",idOffre);
+    console.log("nomService->",nomService);
+    console.log("descriptionOffre->",descriptionOffre);
+    console.log("dateOffre->",dateOffre);
+
     $.ajax
     (
         {
@@ -30,7 +34,6 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
-                // alert(data);
                 $("#divUpdateForm").empty();
                 $("#divUpdateForm").append(data);
                 openUpdateWindow();
@@ -43,9 +46,6 @@ function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
     )
 }
 
-// Marche pour les premières offres ET demandes MAIS
-// Ne marche pas pour les dernières offres ET Demandes ?
-// (?? Uncaught SyntaxError: missing ) after argument list ??)
 function updateOffre()
 {
     var idOffre = $('#numOffre').val();
@@ -74,6 +74,11 @@ function updateOffre()
 
 function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemande)
 {
+    console.log("idDemande->",idDemande);
+    console.log("nomService->",nomService);
+    console.log("descriptionDemande->",descriptionDemande);
+    console.log("dateDemande->",dateDemande);
+
     $.ajax
     (
         {
@@ -82,8 +87,6 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
-                // alert(data);
-                // alert("descriptionDemande : "+descriptionDemande);
                 $("#divUpdateForm").empty();
                 $("#divUpdateForm").append(data);
                 openUpdateWindow();
@@ -96,8 +99,6 @@ function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemand
     )
 }
 
-// Même problème que offre ??
-// Se référer aux commentaires de updateOffre
 function updateDemande()
 {
     var idDemande = $('#numDemande').val();

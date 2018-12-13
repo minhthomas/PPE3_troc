@@ -41,9 +41,12 @@
     <div class="cssDivOffre" id='divOffre'>
         <?php
             foreach ($lesOffres as $uneOffre)
-            { 
+            {
+                $descriptionOffre = str_replace("'", "&#8217", $uneOffre->descriptionOffre);
+                // $descriptionOffre = str_replace("#", "&#35", $descriptionOffre);
+                $nomService = str_replace("'", "&#8217", $uneOffre->nomService);
         ?>
-                <div class="cssDivOffre2" onclick="openWindowOffre('<?php echo $uneOffre->idOffre ?>', '<?php echo $uneOffre->nomService ?>', '<?php echo $uneOffre->descriptionOffre ?>', '<?php echo $uneOffre->dateOffre ?>')">
+                <div class="cssDivOffre2" onclick='openWindowOffre(<?php echo $uneOffre->idOffre ?>, "<?php echo $nomService ?>", "<?php echo $descriptionOffre ?>", "<?php echo $uneOffre->dateOffre ?>")'>
                     <i class="far fa-heart fa-2x"></i>
                     <p class="infos_Offre">
                         <strong><?php echo $uneOffre->nomService ?></strong><br>
@@ -65,9 +68,12 @@
     <div class="cssDivDemande" id='divDemande'>
         <?php
             foreach ($lesDemandes as $uneDemande)
-            { 
+            {
+                $descriptionDemande = str_replace("'", "&#8217", $uneDemande->descriptionDemande);
+                // $descriptionOffre = str_replace("#", "&#35", $descriptionOffre);
+                $nomService = str_replace("'", "&#8217", $uneDemande->nomService);
         ?>
-                <div class="cssDivDemande2" onclick="openWindowDemande('<?php echo $uneDemande->idDemande ?>', '<?php echo $uneDemande->nomService ?>', '<?php echo $uneDemande->descriptionDemande ?>', '<?php echo $uneDemande->dateDemande ?>')">
+                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>, "<?php echo $nomService ?>", "<?php echo $descriptionDemande ?>", <?php echo $uneDemande->dateDemande ?>")'>
                     <i class="far fa-flag fa-2x"></i>
                     <p class="infos_Demande">
                         <strong><?php echo $uneDemande->nomService ?></strong><br>
