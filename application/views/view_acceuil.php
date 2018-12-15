@@ -42,11 +42,8 @@
         <?php
             foreach ($lesOffres as $uneOffre)
             {
-                $descriptionOffre = str_replace("'", "&#8217", $uneOffre->descriptionOffre);
-                // $descriptionOffre = str_replace("#", "&#35", $descriptionOffre);
-                $nomService = str_replace("'", "&#8217", $uneOffre->nomService);
         ?>
-                <div class="cssDivOffre2" onclick='openWindowOffre(<?php echo $uneOffre->idOffre ?>, "<?php echo $nomService ?>", "<?php echo $descriptionOffre ?>", "<?php echo $uneOffre->dateOffre ?>")'>
+                <div class="cssDivOffre2" onclick='openWindowOffre(<?php echo $uneOffre->idOffre ?>)'>
                     <i class="far fa-heart fa-2x"></i>
                     <p class="infos_Offre">
                         <strong><?php echo $uneOffre->nomService ?></strong><br>
@@ -69,11 +66,8 @@
         <?php
             foreach ($lesDemandes as $uneDemande)
             {
-                $descriptionDemande = str_replace("'", "&#8217", $uneDemande->descriptionDemande);
-                // $descriptionOffre = str_replace("#", "&#35", $descriptionOffre);
-                $nomService = str_replace("'", "&#8217", $uneDemande->nomService);
         ?>
-                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>, "<?php echo $nomService ?>", "<?php echo $descriptionDemande ?>", <?php echo $uneDemande->dateDemande ?>")'>
+                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
                     <i class="far fa-flag fa-2x"></i>
                     <p class="infos_Demande">
                         <strong><?php echo $uneDemande->nomService ?></strong><br>
@@ -97,25 +91,25 @@
             foreach ($lesDeals as $unDeal)
             {
         ?>
-                    <div class="cssDivDeals2">
-                        <p class="infos_Deals">
-                            <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
-                            <strong><?php echo $unDeal->nomUser ?></strong><br>
-                            <?php echo $unDeal->dateDeal; ?>
+                <div class="cssDivDeals2">
+                    <p class="infos_Deals">
+                        <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
+                        <strong><?php echo $unDeal->nomUser ?></strong><br>
+                        <?php echo $unDeal->dateDeal; ?>
 
-                            <?php echo $unDeal->nomService ?><br> 
-                            vs<br>
+                        <?php echo $unDeal->nomService ?><br> 
+                        vs<br>
 
-                            <?php 
-                                echo $leServiceUser2[$i]->nomService; 
-                                $i++;
-                            ?>
-                            
-                            <br>
-                            <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
-                            <input type='button' value='Afficher' onclick='AfficherDeals()'>
-                        </p>
-                    </div>
+                        <?php 
+                            echo $leServiceUser2[$i]->nomService; 
+                            $i++;
+                        ?>
+                        
+                        <br>
+                        <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
+                        <input type='button' value='Afficher' onclick='openWindowDeals()' style='color: red;'>
+                    </p>
+                </div>
         <?php
             }
         ?>

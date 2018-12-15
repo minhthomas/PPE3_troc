@@ -16,6 +16,16 @@ class Model_Offre extends CI_Model
         return $sql->result();
     }
 
+    public function getInformationOffreById($idUser, $idOffre)
+    {
+        $sql = $this->db->query("SELECT idOffre, descriptionOffre, dateOffre, nomService
+        FROM offre, service
+        WHERE offre.idService = service.idService
+        AND idUser = ".$idUser."
+        AND idOffre = ".$idOffre);
+        return $sql->result();
+    }
+
     public function getAllService()
     {
         $sql = $this->db->query("SELECT idService, nomService FROM service");

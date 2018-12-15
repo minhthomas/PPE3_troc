@@ -24,12 +24,11 @@ class Ctrl_Acceuil extends CI_Controller
     public function addInformationOffre()
     {
         $this->load->model("Model_Offre");
-        $data['lesServices'] = $this->Model_Offre->getAllService();
 
-        echo $_GET['idOffre']."\n";
-        echo $_GET['nomServ']."\n";
-        echo $_GET['descOffre']."\n";
-        echo $_GET['dateOffre']."\n";
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $data['lesInfosOffre'] = $this->Model_Offre->getInformationOffreById($idOfConnectUser, $_GET['idOffre']);
 
         $this->load->view("View_UpdateOffre", $data);
     }
@@ -43,18 +42,17 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->setOffre($idOffre, $descOffre, $dateOffre);
 
-        $this->load->view("View_Acceuil", $data);
+        $this->index();
     }
 
     public function addInformationDemande()
     {
         $this->load->model("Model_Demande");
-        $data['lesServices'] = $this->Model_Demande->getAllService();
 
-        echo $_GET['idDemande']."\n";
-        echo $_GET['nomServ']."\n";
-        echo $_GET['descDemande']."\n";
-        echo $_GET['dateDemande']."\n";
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $data['lesInfosDemande'] = $this->Model_Demande->getInformationDemandeById($idOfConnectUser, $_GET['idDemande']);
 
         $this->load->view("View_UpdateDemande", $data);
     }
@@ -109,7 +107,6 @@ class Ctrl_Acceuil extends CI_Controller
         $txtnextdemande = $_GET['txtnextdemande'];
         $txtadddescDemande = $_GET['txtadddescDemande'];
         $idservice = $_GET['idservice'];
-
 
         $this->load->library('session');
         $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];

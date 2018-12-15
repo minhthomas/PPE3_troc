@@ -44,7 +44,7 @@ class GestionLogin extends CI_Controller
         $this->load->library('session');
         $this->session->sess_destroy();
 
-        header("Location:".base_url()."index.php/GestionLogin/");
+        header("Location:".base_url());
     }
 
     public function openinscription()

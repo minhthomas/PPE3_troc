@@ -19,19 +19,14 @@ function CloseWindow()
     modal.style.display = "none";
 }
 
-function openWindowOffre(idOffre, nomService, descriptionOffre, dateOffre)
+function openWindowOffre(idOffre)
 {
-    console.log("idOffre->",idOffre);
-    console.log("nomService->",nomService);
-    console.log("descriptionOffre->",descriptionOffre);
-    console.log("dateOffre->",dateOffre);
-
     $.ajax
     (
         {
             type:"get",
             url:"addInformationOffre",
-            data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descriptionOffre+"&dateOffre="+dateOffre,
+            data:"idOffre="+idOffre,
             success:function(data)
             {
                 $("#divUpdateForm").empty();
@@ -61,30 +56,25 @@ function updateOffre()
             data:"idOffre="+idOffre+"&nomServ="+nomService+"&descOffre="+descOffre+"&dateOffre="+dateOffre,
             success:function(data)
             {
-                alert("Update OFFRE OK");
+                alert("La modification de l'offre à été effectué.");
                 CloseWindow();
             },
             error:function()
             {
-                alert("Erreur de la modification de l'offre");
+                alert("Erreur lors de la modification de l'offre");
             }
         }
     )
 }
 
-function openWindowDemande(idDemande, nomService, descriptionDemande, dateDemande)
+function openWindowDemande(idDemande)
 {
-    console.log("idDemande->",idDemande);
-    console.log("nomService->",nomService);
-    console.log("descriptionDemande->",descriptionDemande);
-    console.log("dateDemande->",dateDemande);
-
     $.ajax
     (
         {
             type:"get",
             url:"addInformationDemande",
-            data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descriptionDemande+"&dateDemande="+dateDemande,
+            data:"idDemande="+idDemande,
             success:function(data)
             {
                 $("#divUpdateForm").empty();
@@ -114,12 +104,12 @@ function updateDemande()
             data:"idDemande="+idDemande+"&nomServ="+nomService+"&descDemande="+descDemande+"&dateDemande="+dateDemande,
             success:function(data)
             {
-                alert("Update DEMANDE OK");
+                alert("La modification de la demande à été effectué.");
                 CloseWindow();
             },
             error:function()
             {
-                alert("Erreur de la modification de l'offre");
+                alert("Erreur lors de la modification de la demande");
             }
         }
     )
@@ -190,7 +180,24 @@ function deconnection()
     )
 }
 
-function AfficherDeals()
+function openWindowDeals()
 {
-    alert("Non fonctionnel pour le moment !");
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"addInformationDeals",
+            data:"",
+            success:function(data)
+            {
+                $("#divUpdateForm").empty();
+                $("#divUpdateForm").append(data);
+                openUpdateWindow();
+            },
+            error:function()
+            {
+                alert("Erreur d'affichage de la vue");
+            }
+        }
+    )
 }

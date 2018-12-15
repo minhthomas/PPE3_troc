@@ -11,6 +11,16 @@ class Model_Demande extends CI_Model
         return $sql->result();
     }
 
+    public function getInformationDemandeById($idUser, $idDemande)
+    {
+        $sql = $this->db->query("SELECT idDemande, descriptionDemande, dateDemande, nomService
+        FROM demande, service
+        WHERE demande.idService = service.idService
+        AND idUser = ".$idUser."
+        AND idDemande = ".$idDemande);
+        return $sql->result();
+    }
+
     public function getAllService()
     {
         $sql = $this->db->query("SELECT idService, nomService FROM service");
