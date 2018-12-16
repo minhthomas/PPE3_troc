@@ -107,7 +107,7 @@
                         
                         <br>
                         <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
-                        <input type='button' value='Afficher' onclick='openWindowDeals()' style='color: red;'>
+                        <input type='button' value='Afficher' onclick='openWindowDeals(<?php echo $unDeal->idDeal ?>)' style='color: red;'>
                     </p>
                 </div>
         <?php

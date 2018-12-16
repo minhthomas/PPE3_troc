@@ -114,6 +114,28 @@ class Ctrl_Acceuil extends CI_Controller
         $data['LesDemandes'] = $this->Model_Demande->insertDemande($txtnextdemande, $txtadddescDemande, $idservice, $idOfConnectUser);
         $this->load->view('view_insertdemande');
     }
+
+    public function addInformationDeals()
+    {
+        $this->load->model("Model_Deal");
+
+        $data['lesInfosDeal'] = $this->Model_Deal->getInformationsByIdDeal($_GET['idDeal']);
+        $data['nomUser1'] = $this->Model_Deal->getNameUserOffre1($_GET['idDeal']);
+        $data['nomUser2'] = $this->Model_Deal->getNameUserOffre2($_GET['idDeal']);
+        $data['nomServiceUser1'] = $this->Model_Deal->getNameServiceUserOffre1($_GET['idDeal']);
+        $data['nomServiceUser2'] = $this->Model_Deal->getNameServiceUserOffre2($_GET['idDeal']);
+
+        $this->load->view("View_UpdateDeal", $data);
+    }
+
+    public function setNoteDeal()
+    {
+        $this->load->model("Model_Deal");
+
+        $data['lesNotesUser'] = $this->Model_Deal->setNoteUser($_GET['idDeal'], $_GET['noteUser1'], $_GET['noteUser2']);
+
+        $this->index();
+    }
 }
 
 ?>

@@ -180,14 +180,14 @@ function deconnection()
     )
 }
 
-function openWindowDeals()
+function openWindowDeals(idDeal)
 {
     $.ajax
     (
         {
             type:"get",
             url:"addInformationDeals",
-            data:"",
+            data:"idDeal="+idDeal,
             success:function(data)
             {
                 $("#divUpdateForm").empty();
@@ -197,6 +197,35 @@ function openWindowDeals()
             error:function()
             {
                 alert("Erreur d'affichage de la vue");
+            }
+        }
+    )
+}
+
+function updateDeal()
+{
+    var idDeal = $('#txtIdDeal').val();
+    var noteUser1 = $('#txtNoteUser1').val();
+    var noteUser2 = $('#txtNoteUser2').val();
+
+    console.log("idDeal->", idDeal);
+    console.log("noteUser1->", noteUser1);
+    console.log("noteUser2->", noteUser2);
+
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"setNoteDeal",
+            data:"idDeal="+idDeal+"&noteUser1="+noteUser1+"&noteUser2="+noteUser2,
+            success:function(data)
+            {
+                alert("La mise à jour de votre note à été effectué.");
+                CloseWindow();
+            },
+            error:function()
+            {
+                alert("Erreur de la modification de la note.");
             }
         }
     )
