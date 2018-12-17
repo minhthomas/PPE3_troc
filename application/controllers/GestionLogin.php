@@ -30,7 +30,7 @@ class GestionLogin extends CI_Controller
 
             // var_dump($_SESSION['allInfosUser']);
         
-            header("Location:".base_url()."index.php/Ctrl_Acceuil/setAcceuilView/");
+            header("Location:".base_url()."index.php/Ctrl_Acceuil/");
         }
         else {
             echo "Identifiants ou mot de passe incorrect.";
@@ -41,10 +41,11 @@ class GestionLogin extends CI_Controller
     public function Logout()
     {
         // La suppresion de la session se passe bien mais la page GestionLogin n'apparait pas ?
-        $this->load->library('session');
+        $this->load->library("session");
         $this->session->sess_destroy();
 
-        header("Location:".base_url()."index.php/GestionLogin/");
+        // header("Location:".base_url()."index.php/GestionLogin/login");
+        $this->load->view('View_login');
     }
 
     public function openinscription()

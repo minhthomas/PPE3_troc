@@ -10,6 +10,13 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>CSS/mesStyles.css" />
+<<<<<<< HEAD
+=======
+
+    <!-- CSS Pour les icones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    
+>>>>>>> origin/thomas
     <!-- CSS Pour les icones -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script src="<?php echo base_url() ?>JS/mesFonctions.js"></script>
@@ -30,19 +37,26 @@
 
     
     <div class="fondDemande">
+<<<<<<< HEAD
     <h1 id='Offres'>Mes Offres  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddOffre">+</a>'?></h1>             
+=======
+        <h1 id='Offres'>Mes Offres <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/setAddOffre'>+</a></h1>
+>>>>>>> origin/thomas
     </div>
    
     <hr>
     <div class="cssDivOffre" id='divOffre'>
         <?php
             foreach ($lesOffres as $uneOffre)
-            { 
+            {
         ?>
-                <div class="cssDivOffre2" onclick="openWindowOffre('<?php echo $uneOffre->idOffre ?>', '<?php echo $uneOffre->nomService ?>', '<?php echo $uneOffre->descriptionOffre ?>', '<?php echo $uneOffre->dateOffre ?>')">
-                    <p class=""><?php echo $uneOffre->nomService ?></p>
-                    <p class=""><?php echo $uneOffre->descriptionOffre ?></p>
-                    <p class=""><?php echo $uneOffre->dateOffre; ?></p>
+                <div class="cssDivOffre2" onclick='openWindowOffre(<?php echo $uneOffre->idOffre ?>)'>
+                    <i class="far fa-heart fa-2x"></i>
+                    <p class="infos_Offre">
+                        <strong><?php echo $uneOffre->nomService ?></strong><br>
+                        <?php echo $uneOffre->descriptionOffre ?><br>
+                        <?php echo $uneOffre->dateOffre; ?>
+                    </p>
                 </div>
         <?php    
             }
@@ -52,18 +66,25 @@
 
 
     <div class="fondDemande">
+<<<<<<< HEAD
     <h1 id='Demandes'>Mes Demandes  <?php echo '<a class="lienplus" href="'.base_url().'index.php/Ctrl_Acceuil/setAddDemande">+</a>'?></h1>             
+=======
+        <h1 id='Demandes'>Mes Demandes <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/setAddDemande'>+</a></h1>             
+>>>>>>> origin/thomas
     </div>
     <hr>
     <div class="cssDivDemande" id='divDemande'>
         <?php
             foreach ($lesDemandes as $uneDemande)
-            { 
+            {
         ?>
-                <div class="cssDivDemande2" onclick="openWindowDemande('<?php echo $uneDemande->idDemande ?>', '<?php echo $uneDemande->nomService ?>', '<?php echo $uneDemande->descriptionDemande ?>', '<?php echo $uneDemande->dateDemande ?>')">
-                    <p class=""><?php echo $uneDemande->nomService ?></p>
-                    <p class=""><?php echo $uneDemande->descriptionDemande ?></p>
-                    <p class=""><?php echo $uneDemande->dateDemande; ?></p>
+                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
+                    <i class="far fa-flag fa-2x"></i>
+                    <p class="infos_Demande">
+                        <strong><?php echo $uneDemande->nomService ?></strong><br>
+                        <?php echo $uneDemande->descriptionDemande ?><br>
+                        <?php echo $uneDemande->dateDemande; ?>
+                    </p>
                 </div>
         <?php    
             }
@@ -75,31 +96,31 @@
     <hr>
     <div class="cssDivDeals" id='divDeals'>
         <?php
-            // var_dump($lesDeals);
-            // var_dump($leServiceUser2);
             $i=0;
-            foreach ($lesDeals as $unDeal)
+            var_dump($lesDealsCrées);
+            var_dump($lesDealsNonCrées);
+            foreach ($lesDealsCrées as $unDeal)
             {
         ?>
-                    <div class="cssDivDeals2">
-                        <p class="infos_Deals">
-                            <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
-                            <strong><?php echo $unDeal->nomUser ?></strong><br>
-                            <?php echo $unDeal->dateDeal; ?>
+                <div class="cssDivDeals2">
+                    <p class="infos_Deals">
+                        <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
+                        <strong><?php echo $unDeal->nomUser ?></strong><br>
+                        <?php echo $unDeal->dateDeal; ?>
 
-                            <?php echo $unDeal->nomService ?><br> 
-                            vs<br>
+                        <?php echo $unDeal->nomService ?><br> 
+                        vs<br>
 
-                            <?php 
-                                echo $leServiceUser2[$i]->nomService; 
-                                $i++;
-                            ?>
-                            
-                            <br>
-                            <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
-                            <input type='button' value='Afficher' onclick='AfficherDeals()'>
-                        </p>
-                    </div>
+                        <?php 
+                            echo $leServiceUser2[$i]->nomService; 
+                            $i++;
+                        ?>
+                        
+                        <br>
+                        <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
+                        <input type='button' value='Afficher' onclick='openWindowDeals(<?php echo $unDeal->idDeal ?>)' style='color: red;'>
+                    </p>
+                </div>
         <?php
             }
         ?>
@@ -108,7 +129,7 @@
 
     <div id="fenetreUpdate" class="cssFenetre">
         <div class="contentForm">
-            <div id="updateForm"></div>
+            <div id="divUpdateForm"></div>
         </div>
     </div>
     

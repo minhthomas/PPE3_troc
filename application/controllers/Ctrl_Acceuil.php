@@ -1,7 +1,7 @@
 <?php
 class Ctrl_Acceuil extends CI_Controller
 {
-    public function setAcceuilView()
+    public function index()
     {
         $this->load->library('session');
         $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
@@ -13,10 +13,10 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDeals'] = $this->Model_Deal->getAllDealsAndServiceUser1($idOfConnectUser);
+        $data['lesDealsCrées'] = $this->Model_Deal->getAllDealsCreator($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['leServiceUser2'] = $this->Model_Deal->getServiceUser2($idOfConnectUser);
+        $data['lesDealsNonCrées'] = $this->Model_Deal->getAllDealsNoneCreator($idOfConnectUser);
 
         $this->load->view("View_Acceuil", $data);
     }
@@ -24,7 +24,11 @@ class Ctrl_Acceuil extends CI_Controller
     public function addInformationOffre()
     {
         $this->load->model("Model_Offre");
-        $data['lesServices'] = $this->Model_Offre->getAllService();
+
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $data['lesInfosOffre'] = $this->Model_Offre->getInformationOffreById($idOfConnectUser, $_GET['idOffre']);
 
         $this->load->view("View_UpdateOffre", $data);
     }
@@ -38,13 +42,17 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->setOffre($idOffre, $descOffre, $dateOffre);
 
-        $this->load->view("View_Acceuil", $data);
+        $this->index();
     }
 
     public function addInformationDemande()
     {
         $this->load->model("Model_Demande");
-        $data['lesServices'] = $this->Model_Demande->getAllService();
+
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $data['lesInfosDemande'] = $this->Model_Demande->getInformationDemandeById($idOfConnectUser, $_GET['idDemande']);
 
         $this->load->view("View_UpdateDemande", $data);
     }
@@ -100,12 +108,33 @@ class Ctrl_Acceuil extends CI_Controller
         $txtadddescDemande = $_GET['txtadddescDemande'];
         $idservice = $_GET['idservice'];
 
-
         $this->load->library('session');
         $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
         $this->load->model('Model_Demande');
         $data['LesDemandes'] = $this->Model_Demande->insertDemande($txtnextdemande, $txtadddescDemande, $idservice, $idOfConnectUser);
         $this->load->view('view_insertdemande');
+    }
+
+    public function addInformationDeals()
+    {
+        $this->load->model("Model_Deal");
+
+        $data['lesInfosDeal'] = $this->Model_Deal->getInformationsByIdDeal($_GET['idDeal']);
+        $data['nomUser1'] = $this->Model_Deal->getNameUserOffre1($_GET['idDeal']);
+        $data['nomUser2'] = $this->Model_Deal->getNameUserOffre2($_GET['idDeal']);
+        $data['nomServiceUser1'] = $this->Model_Deal->getNameServiceUserOffre1($_GET['idDeal']);
+        $data['nomServiceUser2'] = $this->Model_Deal->getNameServiceUserOffre2($_GET['idDeal']);
+
+        $this->load->view("View_UpdateDeal", $data);
+    }
+
+    public function setNoteDeal()
+    {
+        $this->load->model("Model_Deal");
+
+        $data['lesNotesUser'] = $this->Model_Deal->setNoteUser($_GET['idDeal'], $_GET['noteUser1'], $_GET['noteUser2']);
+
+        $this->index();
     }
 }
 

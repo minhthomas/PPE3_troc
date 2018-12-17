@@ -1,11 +1,16 @@
 body{
     background-color: #d80303 !important;
+<<<<<<< HEAD
     /* color: white !important; */
+=======
+    color: white !important;
+>>>>>>> origin/thomas
 }
 
 /* CSS Bandeau */
 .infosConnectUser{
     text-align: center;
+<<<<<<< HEAD
 }
 .img_user{
     width: 20px;
@@ -14,6 +19,16 @@ body{
     float: left;
     height: 0px;
 }
+=======
+}
+.img_user{
+    width: 20px;
+}
+.welcome_user{
+    float: left;
+    height: 0px;
+}
+>>>>>>> origin/thomas
 ul{
     display: table;
     width: 600px;
@@ -164,4 +179,12 @@ ul li a:active{
     border-radius: 500%;
     background-color:   rgb(34, 8, 179)  ;
 
+}
+
+.contentForm{
+    background-color: #d80303 !important;
+}
+
+.photoOfUser{
+    float: left;
 }
