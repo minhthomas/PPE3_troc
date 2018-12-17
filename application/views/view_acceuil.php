@@ -85,10 +85,10 @@
     <hr>
     <div class="cssDivDeals" id='divDeals'>
         <?php
-            // var_dump($lesDeals);
-            // var_dump($leServiceUser2);
             $i=0;
-            foreach ($lesDeals as $unDeal)
+            var_dump($lesDealsCrées);
+            var_dump($lesDealsNonCrées);
+            foreach ($lesDealsCrées as $unDeal)
             {
         ?>
                 <div class="cssDivDeals2">

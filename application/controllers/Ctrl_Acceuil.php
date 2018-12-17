@@ -13,10 +13,10 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDeals'] = $this->Model_Deal->getAllDealsAndServiceUser1($idOfConnectUser);
+        $data['lesDealsCrées'] = $this->Model_Deal->getAllDealsCreator($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['leServiceUser2'] = $this->Model_Deal->getServiceUser2($idOfConnectUser);
+        $data['lesDealsNonCrées'] = $this->Model_Deal->getAllDealsNoneCreator($idOfConnectUser);
 
         $this->load->view("View_Acceuil", $data);
     }
