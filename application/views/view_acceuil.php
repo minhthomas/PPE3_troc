@@ -10,9 +10,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>CSS/mesStyles.css" />
-
-    <!-- CSS Pour les icones -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     
     <!-- CSS Pour les icones -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
@@ -63,22 +60,22 @@
     </div>
     <hr>
     <div class="cssDivDemande" id='divDemande'>
-    <?php
-        foreach ($lesDemandes as $uneDemande)
-        {
-    ?>
-            <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
-                <i class="far fa-flag fa-2x"></i>
-                <p class="infos_Demande">
-                    <strong><?php echo $uneDemande->nomService ?></strong><br>
-                    <?php echo $uneDemande->descriptionDemande ?><br>
-                    <?php echo $uneDemande->dateDemande; ?>
-                </p>
-            </div>
-    <?php    
-        }
-    ?>
-    <br>
+        <?php
+            foreach ($lesDemandes as $uneDemande)
+            {
+        ?>
+                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
+                    <i class="far fa-flag fa-2x"></i>
+                    <p class="infos_Demande">
+                        <strong><?php echo $uneDemande->nomService ?></strong><br>
+                        <?php echo $uneDemande->descriptionDemande ?><br>
+                        <?php echo $uneDemande->dateDemande; ?>
+                    </p>
+                </div>
+        <?php    
+            }
+        ?>
+        <br>
     </div>
 
     <h1 id='Deals'>Mes Deals <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/AddDeal'>+</a></h1>

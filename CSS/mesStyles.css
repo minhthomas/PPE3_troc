@@ -181,3 +181,16 @@ ul li a:active{
 .photoOfUser{
     float: left;
 }
+
+.cssDivUser{
+    display: inline-block;
+}
+
+.photoUserDeal{
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    height:20%;
+    width: 20%;
+}

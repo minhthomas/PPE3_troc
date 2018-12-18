@@ -251,3 +251,57 @@ function updateDeal()
         )
     }
 }
+
+function rechercherOffre()
+{
+    // console.log($('#txtRecherche').val());
+    var txtRecherche = $('#txtRecherche').val();
+    if(txtRecherche.length >= 3)
+    {
+        $.ajax
+        (
+            {
+                type:"get",
+                url:"RechercherOffre",
+                data:"offre="+txtRecherche,
+                success:function(data)
+                {
+                    $("#viewUser").empty();
+                    $("#viewOffresEtDemandes").empty();
+                    $("#viewUser").append(data);
+                },
+                error:function()
+                {
+                    alert("Erreur lors de l'affichage utilisateurs.")
+                }
+            }
+        )
+    }
+    else
+    {
+        $("#viewUser").empty();
+        $("#viewOffresEtDemandes").empty();
+    }
+}
+
+function selectUserForDeal(idUser)
+{
+    // console.log(idUser);
+    $.ajax
+    (
+        {
+            type:"get",
+            url:"getOffreAndDemandeOfSelectedUser",
+            data:"idUser="+idUser,
+            success:function(data)
+            {
+                $("#viewOffresEtDemandes").empty();
+                $("#viewOffresEtDemandes").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur lors de la récupération des offres et demandes de l'utilisateur sélectionné.")
+            }
+        }
+    )
+}

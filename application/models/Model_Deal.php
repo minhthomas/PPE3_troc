@@ -109,6 +109,20 @@ class Model_Deal extends CI_Model
         SET noteUser1=".$noteUser1.", noteUser2=".$noteUser2.", idEtat = 2
         WHERE deal.idDeal = ".$idDeal);
     }
+
+    public function getUsersByOffre($offre)
+    {
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $sql = $this->db->query("SELECT user.idUser, user.nomUser, user.photoUser
+        FROM user,offre 
+        WHERE offre.idUser=user.idUser 
+        AND offre.idUser!= ".$idOfConnectUser." 
+        AND offre.descriptionOffre like '%".$offre."%' 
+        GROUP BY user.nomUser");
+        return $sql->result();
+    }
 }
 
 ?>

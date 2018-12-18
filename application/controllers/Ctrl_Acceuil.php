@@ -141,6 +141,9 @@ class Ctrl_Acceuil extends CI_Controller
 
     public function AddDeal()
     {
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->getAllOffre($idOfConnectUser);
 
@@ -149,6 +152,26 @@ class Ctrl_Acceuil extends CI_Controller
 
         $this->load->view('view_insertdeal',$data);
     }
+
+    public function RechercherOffre()
+    {
+        $this->load->model("Model_Deal");
+        $data['lesUsers'] = $this->Model_Deal->getUsersByOffre($_GET['offre']);
+
+        $this->load->view('view_Users',$data);
+    }
+
+    public function getOffreAndDemandeOfSelectedUser()
+    {
+        $this->load->model("Model_Offre");
+        $data['lesOffresUser'] = $this->Model_Offre->getAllOffre($_GET['idUser']);
+
+        $this->load->model("Model_Demande");
+        $data['lesDemandesUser'] = $this->Model_Demande->getAllDemande($_GET['idUser']);
+
+        $this->load->view('view_UsersOffresAndDemandes',$data);
+    }
+    
 }
 
 ?>
