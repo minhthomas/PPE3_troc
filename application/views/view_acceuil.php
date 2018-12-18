@@ -60,22 +60,22 @@
     </div>
     <hr>
     <div class="cssDivDemande" id='divDemande'>
-    <?php
-        foreach ($lesDemandes as $uneDemande)
-        {
-    ?>
-            <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
-                <i class="far fa-flag fa-2x"></i>
-                <p class="infos_Demande">
-                    <strong><?php echo $uneDemande->nomService ?></strong><br>
-                    <?php echo $uneDemande->descriptionDemande ?><br>
-                    <?php echo $uneDemande->dateDemande; ?>
-                </p>
-            </div>
-    <?php    
-        }
-    ?>
-    <br>
+        <?php
+            foreach ($lesDemandes as $uneDemande)
+            {
+        ?>
+                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
+                    <i class="far fa-flag fa-2x"></i>
+                    <p class="infos_Demande">
+                        <strong><?php echo $uneDemande->nomService ?></strong><br>
+                        <?php echo $uneDemande->descriptionDemande ?><br>
+                        <?php echo $uneDemande->dateDemande; ?>
+                    </p>
+                </div>
+        <?php    
+            }
+        ?>
+        <br>
     </div>
 
     <h1 id='Deals'>Mes Deals <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/AddDeal'>+</a></h1>

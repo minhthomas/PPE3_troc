@@ -109,6 +109,30 @@ class Model_Deal extends CI_Model
         SET noteUser1=".$noteUser1.", noteUser2=".$noteUser2.", idEtat = 2
         WHERE deal.idDeal = ".$idDeal);
     }
+
+    public function getUsersByOffre($offre)
+    {
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $sql = $this->db->query("SELECT user.idUser, user.nomUser, user.photoUser
+        FROM user
+        INNER JOIN offre on offre.idUser = user.idUser
+        INNER JOIN service on service.idService = offre.idService
+        WHERE offre.idUser!= ".$idOfConnectUser." 
+        AND service.nomService like '%".$offre."%' 
+        GROUP BY user.nomUser");
+        return $sql->result();
+    }
+
+    public function insertDeal($idOffreUser1, $idOffreUser2)
+    {
+        $this->load->library('session');
+        $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
+
+        $sql = $this->db->query("INSERT INTO deal (dateDeal, noteUser1, noteUser2, idOffreUser1, idOffreUser2, idEtat, idCreateur)
+        VALUES (CURRENT_DATE(), 0, 0, ".$idOffreUser1.", ".$idOffreUser2.", 1, ".$idOfConnectUser.")");
+    }
 }
 
 ?>
