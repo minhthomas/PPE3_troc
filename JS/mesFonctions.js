@@ -58,6 +58,7 @@ function updateOffre()
             {
                 alert("La modification de l'offre à été effectué.");
                 CloseWindow();
+                window.location = 'index';
             },
             error:function()
             {
@@ -106,6 +107,7 @@ function updateDemande()
             {
                 alert("La modification de la demande à été effectué.");
                 CloseWindow();
+                window.location = 'index';
             },
             error:function()
             {
@@ -121,63 +123,57 @@ function addOffre()
     // var txtadddescOffre = $('#txtadddescOffre').val();
     // var idservice = $('#idservice').val();
 
-    $.ajax
-    (
-        {
-            type:"get",
-            url:"insertOffre",
-            data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
-            success:function(data)
+    if($('#txtadddescOffre').val() == "")
+    {
+        alert("Veuillez saisir une description de l'offre.");
+    }
+    else
+    {
+        $.ajax
+        (
             {
-                alert("Insert ok");
-            },
-            error:function()
-            {
-                alert("Erreur de la modification de l'offre");
+                type:"get",
+                url:"insertOffre",
+                data:"txtnextidoffre="+$('#txtnextidoffre').val()+"&txtadddescOffre="+$('#txtadddescOffre').val()+"&idservice="+$('#idservice').val(),
+                success:function(data)
+                {
+                    alert("Insert ok");
+                },
+                error:function()
+                {
+                    alert("Erreur de la modification de l'offre");
+                }
             }
-        }
-    );
+        );
+    }
 }
 
 function addDemande()
 {
-    $.ajax
-    (
-        {
-            type:"get",
-            url:"insertDemande",
-            data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
-            success:function(data)
+    if($('#txtadddescDemande').val() == "")
+    {
+        alert("Veuillez saisir une description de la demande.");
+    }
+    else
+    {
+        $.ajax
+        (
             {
-                alert("Insert ok");
-            },
-            error:function()
-            {
-                alert("Erreur de la modification de l'offre");
+                type:"get",
+                url:"insertDemande",
+                data:"txtnextdemande="+$('#txtnextdemande').val()+"&txtadddescDemande="+$('#txtadddescDemande').val()+"&idservice="+$('#idservice').val(),
+                success:function(data)
+                {
+                    alert("Insert ok");
+                },
+                error:function()
+                {
+                    alert("Erreur de la modification de l'offre");
+                }
+                
             }
-            
-        }
-    );
-}
-
-function deconnection()
-{
-    $.ajax
-    (
-        {
-            type:"get",
-            url:"index.php/GestionLogin/Logout",
-            data:"",
-            success:function(data)
-            {
-                alert("Déconnection OK");
-            },
-            error:function()
-            {
-                alert("Erreur lors de la déconnection");
-            }
-        }
-    )
+        );
+    }
 }
 
 function openWindowDeals(idDeal)
@@ -208,25 +204,50 @@ function updateDeal()
     var noteUser1 = $('#txtNoteUser1').val();
     var noteUser2 = $('#txtNoteUser2').val();
 
-    console.log("idDeal->", idDeal);
-    console.log("noteUser1->", noteUser1);
-    console.log("noteUser2->", noteUser2);
+    // console.log("idDeal->", idDeal);
+    // console.log("noteUser1->", noteUser1);
+    // console.log("noteUser2->", noteUser2);
 
-    $.ajax
-    (
-        {
-            type:"get",
-            url:"setNoteDeal",
-            data:"idDeal="+idDeal+"&noteUser1="+noteUser1+"&noteUser2="+noteUser2,
-            success:function(data)
+    if(noteUser1 != 0 && noteUser2 != 0)
+    {
+        $.ajax
+        (
             {
-                alert("La mise à jour de votre note à été effectué.");
-                CloseWindow();
-            },
-            error:function()
-            {
-                alert("Erreur de la modification de la note.");
+                type:"get",
+                url:"setNoteDealAndIdEtat",
+                data:"idDeal="+idDeal+"&noteUser1="+noteUser1+"&noteUser2="+noteUser2,
+                success:function(data)
+                {
+                    alert("La mise à jour de votre note à été effectué.");
+                    CloseWindow();
+                    window.location = 'index';
+                },
+                error:function()
+                {
+                    alert("Erreur de la modification de la note.");
+                }
             }
-        }
-    )
+        )
+    }
+    else
+    {
+        $.ajax
+        (
+            {
+                type:"get",
+                url:"setNoteDeal",
+                data:"idDeal="+idDeal+"&noteUser1="+noteUser1+"&noteUser2="+noteUser2,
+                success:function(data)
+                {
+                    alert("La mise à jour de votre note à été effectué.");
+                    CloseWindow();
+                    window.location = 'index';
+                },
+                error:function()
+                {
+                    alert("Erreur de la modification de la note.");
+                }
+            }
+        )
+    }
 }

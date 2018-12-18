@@ -29,12 +29,12 @@
         <li id="nav-Offres"><a href="#Offres">Offres</a></li>
         <li id="nav-Demandes"><a href="#Demandes">Demandes</a></li>
         <li id="nav-Deals"><a href="#Deals">Deals</a></li>
-        <li id="nav-deco"><a onclick='deconnection()'>Déconnexion</a></li>
+        <li id="nav-deco"><a href='<?php echo base_url(); ?>index.php/GestionLogin/Logout'>Déconnexion</a></li>
     </ul>
 
     
     <div class="fondDemande">
-        <h1 id='Offres'>Mes Offres <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/setAddOffre'>+</a></h1>
+        <h1 id='Offres'>Mes Offres <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/AddOffre'>+</a></h1>
     </div>
    
     <hr>
@@ -59,26 +59,26 @@
 
 
     <div class="fondDemande">
-        <h1 id='Demandes'>Mes Demandes <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/setAddDemande'>+</a></h1>             
+        <h1 id='Demandes'>Mes Demandes <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/AddDemande'>+</a></h1>             
     </div>
     <hr>
     <div class="cssDivDemande" id='divDemande'>
-        <?php
-            foreach ($lesDemandes as $uneDemande)
-            {
-        ?>
-                <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
-                    <i class="far fa-flag fa-2x"></i>
-                    <p class="infos_Demande">
-                        <strong><?php echo $uneDemande->nomService ?></strong><br>
-                        <?php echo $uneDemande->descriptionDemande ?><br>
-                        <?php echo $uneDemande->dateDemande; ?>
-                    </p>
-                </div>
-        <?php    
-            }
-        ?>
-        <br>
+    <?php
+        foreach ($lesDemandes as $uneDemande)
+        {
+    ?>
+            <div class="cssDivDemande2" onclick='openWindowDemande(<?php echo $uneDemande->idDemande ?>)'>
+                <i class="far fa-flag fa-2x"></i>
+                <p class="infos_Demande">
+                    <strong><?php echo $uneDemande->nomService ?></strong><br>
+                    <?php echo $uneDemande->descriptionDemande ?><br>
+                    <?php echo $uneDemande->dateDemande; ?>
+                </p>
+            </div>
+    <?php    
+        }
+    ?>
+    <br>
     </div>
 
     <h1 id='Deals'>Mes Deals</h1>
@@ -86,22 +86,26 @@
     <div class="cssDivDeals" id='divDeals'>
         <?php
             $i=0;
-            var_dump($lesDealsCrées);
-            var_dump($lesDealsNonCrées);
-            foreach ($lesDealsCrées as $unDeal)
+            // var_dump($lesDeals);
+            // var_dump($lesInfosUser2);
+            foreach ($lesDeals as $unDeal)
             {
-        ?>
-                <div class="cssDivDeals2">
+                if ($unDeal->idEtat == 2)
+                {
+                    echo "<div class='DealsValider'>";
+                
+            ?>
                     <p class="infos_Deals">
-                        <img class='creator_deal' src="<?php echo $unDeal->photoUser ?>"><br>
-                        <strong><?php echo $unDeal->nomUser ?></strong><br>
+                        <img class='creator_deal' src="<?php echo $lesInfosUser2[$i]->photoUser ?>"><br>
+                        <strong><?php echo $lesInfosUser2[$i]->nomUser ?></strong><br>
                         <?php echo $unDeal->dateDeal; ?>
 
                         <?php echo $unDeal->nomService ?><br> 
+                        
                         vs<br>
 
                         <?php 
-                            echo $leServiceUser2[$i]->nomService; 
+                            echo $lesInfosUser2[$i]->nomService; 
                             $i++;
                         ?>
                         
@@ -109,8 +113,33 @@
                         <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
                         <input type='button' value='Afficher' onclick='openWindowDeals(<?php echo $unDeal->idDeal ?>)' style='color: red;'>
                     </p>
-                </div>
-        <?php
+            <?php
+                    echo "</div>";
+                }
+                else {
+                    echo "<div class='DealsNonValider'>";
+            ?>
+                    <p class="infos_Deals">
+                        <img class='creator_deal' src="<?php echo $lesInfosUser2[$i]->photoUser ?>"><br>
+                        <strong><?php echo $lesInfosUser2[$i]->nomUser ?></strong><br>
+                        <?php echo $unDeal->dateDeal; ?>
+
+                        <?php echo $unDeal->nomService ?><br> 
+                        
+                        vs<br>
+
+                        <?php 
+                            echo $lesInfosUser2[$i]->nomService; 
+                            $i++;
+                        ?>
+                        
+                        <br>
+                        <?php echo $unDeal->noteUser1 ?> - <?php echo $unDeal->noteUser2 ?><br>
+                        <input type='button' value='Afficher' onclick='openWindowDeals(<?php echo $unDeal->idDeal ?>)' style='color: red;'>
+                    </p>
+            <?php
+                    echo "</div>";
+                }
             }
         ?>
         <br>

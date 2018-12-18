@@ -114,11 +114,19 @@ ul li a:active{
 .cssDivDeals{
     display: -webkit-box;
 }
-.cssDivDeals2{
+.DealsValider{
     text-align: center;
     padding: 10px;
     border:1px solid black;
     margin: 5px;
+    background-color: green;
+}
+.DealsNonValider{
+    text-align: center;
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    background-color: blue;
 }
 .infos_Deals{
     float: right;
