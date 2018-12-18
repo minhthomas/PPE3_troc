@@ -1,16 +1,11 @@
 body{
     background-color: #d80303 !important;
-<<<<<<< HEAD
-    /* color: white !important; */
-=======
     color: white !important;
->>>>>>> origin/thomas
 }
 
 /* CSS Bandeau */
 .infosConnectUser{
     text-align: center;
-<<<<<<< HEAD
 }
 .img_user{
     width: 20px;
@@ -19,16 +14,6 @@ body{
     float: left;
     height: 0px;
 }
-=======
-}
-.img_user{
-    width: 20px;
-}
-.welcome_user{
-    float: left;
-    height: 0px;
-}
->>>>>>> origin/thomas
 ul{
     display: table;
     width: 600px;
@@ -221,6 +206,24 @@ ul li a:active{
     color: black;
 }
 .cssOffreDeals{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    color: black;
+}
+.cssDemandeDeals2{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    color: black;
+}
+.cssOffreDeals2{
     padding: 10px;
     border:1px solid black;
     margin: 5px;

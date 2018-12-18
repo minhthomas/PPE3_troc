@@ -41,9 +41,6 @@ function openWindowOffre(idOffre)
     )
 }
 
-// Marche pour les premières offres ET demandes MAIS
-// Ne marche pas pour les dernières offres ET Demandes ?
-// (?? Uncaught SyntaxError: missing ) after argument list ??)
 function updateOffre()
 {
     var idOffre = $('#numOffre').val();
@@ -93,8 +90,6 @@ function openWindowDemande(idDemande)
     )
 }
 
-// Même problème que offre ??
-// Se référer aux commentaires de updateOffre
 function updateDemande()
 {
     var idDemande = $('#numDemande').val();
