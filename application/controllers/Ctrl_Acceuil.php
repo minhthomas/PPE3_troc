@@ -96,7 +96,7 @@ class Ctrl_Acceuil extends CI_Controller
         $data['LesDemandes'] = $this->Model_Demande->addIdDemande();
         $this->load->model("Model_Demande");
         $data['lesServices'] = $this->Model_Demande->getAllService();
-        $this->load->view('view_insertdemande',$data);
+        $this->load->view('view_insertDemande',$data);
     }
 
     public function insertDemande()
@@ -109,7 +109,7 @@ class Ctrl_Acceuil extends CI_Controller
         $idOfConnectUser = $_SESSION['allInfosUser']['idUser'];
         $this->load->model('Model_Demande');
         $data['LesDemandes'] = $this->Model_Demande->insertDemande($txtnextdemande, $txtadddescDemande, $idservice, $idOfConnectUser);
-        $this->load->view('view_insertdemande');
+        $this->load->view('view_insertDemande');
     }
 
     public function addInformationDeals()
@@ -137,6 +137,17 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Deal");
 
         $data['lesNotesUser'] = $this->Model_Deal->setNoteUserAndIdEtat($_GET['idDeal'], $_GET['noteUser1'], $_GET['noteUser2']);
+    }
+
+    public function AddDeal()
+    {
+        $this->load->model("Model_Offre");
+        $data['lesOffres'] = $this->Model_Offre->getAllOffre($idOfConnectUser);
+
+        $this->load->model("Model_Demande");
+        $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
+
+        $this->load->view('view_insertdeal',$data);
     }
 }
 
