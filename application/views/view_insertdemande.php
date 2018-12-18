@@ -65,7 +65,9 @@
                             <input id='btnaddoffre' class="btn btn-primary btn-block btn-lg" type='button' value='Valider' onclick='addDemande()'>
                         </div>
                         <div class="col-xs-6 col-md-6">
-                            <input id="annuler" type="button" class="btn btn-success btn-block btn-lg" value='Annuler' onclick='CloseWindow();'>
+                            <form method='POST' action='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/'>
+                                <input type="submit" class="btn btn-success btn-block btn-lg" value='Annuler'>
+                            </form>
                         </div>
                     </div>
         </div>

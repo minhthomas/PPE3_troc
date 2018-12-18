@@ -13,10 +13,8 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
         $this->load->model("Model_Deal");
-        $data['lesDealsCrées'] = $this->Model_Deal->getAllDealsCreator($idOfConnectUser);
-
-        $this->load->model("Model_Deal");
-        $data['lesDealsNonCrées'] = $this->Model_Deal->getAllDealsNoneCreator($idOfConnectUser);
+        $data['lesDeals'] = $this->Model_Deal->getAllDealsCreator($idOfConnectUser);
+        $data['lesInfosUser2'] = $this->Model_Deal->getAllInfoUser2($idOfConnectUser);
 
         $this->load->view("View_Acceuil", $data);
     }
@@ -41,8 +39,6 @@ class Ctrl_Acceuil extends CI_Controller
 
         $this->load->model("Model_Offre");
         $data['lesOffres'] = $this->Model_Offre->setOffre($idOffre, $descOffre, $dateOffre);
-
-        $this->index();
     }
 
     public function addInformationDemande()
@@ -66,10 +62,11 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesOffres'] = $this->Model_Demande->setOffre($idDemande, $descDemande, $dateDemande);
 
-        $this->load->view("View_Acceuil", $data);
+        // $this->load->view("View_Acceuil", $data);
+        redirect('Ctrl_Acceuil/', 'refresh');
     }
     
-    public function setAddOffre()
+    public function AddOffre()
     {
         $this->load->model('Model_Offre');
         $data['LesOffres'] = $this->Model_Offre->addIdOffre();
@@ -93,7 +90,7 @@ class Ctrl_Acceuil extends CI_Controller
     
     }
 
-    public function setAddDemande()
+    public function AddDemande()
     {
         $this->load->model('Model_Demande');
         $data['LesDemandes'] = $this->Model_Demande->addIdDemande();
@@ -133,8 +130,13 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Deal");
 
         $data['lesNotesUser'] = $this->Model_Deal->setNoteUser($_GET['idDeal'], $_GET['noteUser1'], $_GET['noteUser2']);
+    }
 
-        $this->index();
+    public function setNoteDealAndIdEtat()
+    {
+        $this->load->model("Model_Deal");
+
+        $data['lesNotesUser'] = $this->Model_Deal->setNoteUserAndIdEtat($_GET['idDeal'], $_GET['noteUser1'], $_GET['noteUser2']);
     }
 }
 

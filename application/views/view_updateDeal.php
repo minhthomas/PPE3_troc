@@ -32,10 +32,10 @@
         <label>Service de : ".$nomUser1[0]->nomUser."</label>
         <input type='text' value='".$nomServiceUser1[0]->nomService."' class='form-control input-lg' disabled><br>
 
-        <label>La note de : ".$nomUser1[0]->nomUser."</label>
+        <label>Votre note : ".$nomUser1[0]->nomUser."</label>
         <input type='text' id='txtNoteUser1' value='".$lesInfosDeal[0]->noteUser1."' class='form-control input-lg'><br>
 
-        <label>Votre note : </label>
+        <label>La note de : </label>
         <input type='text' id='txtNoteUser2' value='".$lesInfosDeal[0]->noteUser2."' class='form-control input-lg' disabled><br>";
     }
 ?>
