@@ -171,7 +171,11 @@ class Ctrl_Acceuil extends CI_Controller
 
         $this->load->view('view_UsersOffresAndDemandes',$data);
     }
-    
-}
 
+    public function addDealInDB()
+    {
+        $this->load->model("Model_Deal");
+        $data['leDealAjouter'] = $this->Model_Deal->insertDeal($_GET['idOffreUser1'], $_GET['idOffreUser2']);
+    }   
+}
 ?>

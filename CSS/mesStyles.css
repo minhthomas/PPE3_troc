@@ -158,12 +158,12 @@ ul li a:active{
     border: 1px solid #888;
     width: 80%;
 }
-/* Css bouton ajouter offre et demande */
+
+/* CSS bouton ajouter offre et demande */
 .fondDemande{
     width: 270px;
     border-bottom: 2px solid  rgb(216, 63, 29);
 }
-
 .lienplus
 {
     width: 40px;
@@ -193,4 +193,33 @@ ul li a:active{
     border-radius:50px;
     height:20%;
     width: 20%;
+}
+
+/* CSS offre & demande user - deal */
+.cssDemandeDeals{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    color: black;
+}
+.cssOffreDeals{
+    padding: 10px;
+    border:1px solid black;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+    background-color: white;
+    color: black;
+}
+
+.DivInsertDeal{
+    float: left;
+}
+.infos_user{
+    /* float: right; */
+    display: grid;
+    padding-left: 50px;
 }

@@ -272,7 +272,7 @@ function rechercherOffre()
                 },
                 error:function()
                 {
-                    alert("Erreur lors de l'affichage utilisateurs.")
+                    alert("Erreur lors de l'affichage des utilisateurs.");
                 }
             }
         )
@@ -300,8 +300,94 @@ function selectUserForDeal(idUser)
             },
             error:function()
             {
-                alert("Erreur lors de la récupération des offres et demandes de l'utilisateur sélectionné.")
+                alert("Erreur lors de la récupération des offres et demandes de l'utilisateur sélectionné.");
             }
         }
     )
+}
+
+var idDemandeConnectUser;
+var idServiceDemandeConnectUser;
+
+var idOffreConnectUser;
+var idServiceOffreConnectUser;
+
+var idDemandeSelectedUser;
+var idServiceDemandeSelectedUser;
+
+var idOffreSelectedUser;
+var idServiceOffreSelectedUser;
+
+function setidDemandeConnectUser(id, idService)
+{
+    idDemandeConnectUser = id;
+    idServiceDemandeConnectUser = idService;
+    console.log("idDemandeConnectUser->", idDemandeConnectUser);
+    console.log("idServiceDemandeConnectUser->", idServiceDemandeConnectUser);
+}
+
+function setidOffreConnectUser(id, idService)
+{
+    idOffreConnectUser = id;
+    idServiceOffreConnectUser = idService;
+    console.log("idOffreConnectUser->", idOffreConnectUser);
+    console.log("idServiceOffreConnectUser->", idServiceOffreConnectUser);
+}
+
+function setidDemandeSelectedUser(id, idService)
+{
+    idDemandeSelectedUser = id;
+    idServiceDemandeSelectedUser = idService;
+    console.log("idDemandeSelectedUser->", idDemandeSelectedUser);
+    console.log("idServiceDemandeSelectedUser->", idServiceDemandeSelectedUser);
+}
+
+function setidOffreSelectedUser(id, idService)
+{
+    idOffreSelectedUser = id;
+    idServiceOffreSelectedUser = idService;
+    console.log("idOffreSelectedUser->", idOffreSelectedUser);
+    console.log("idServiceOffreSelectedUser->", idServiceOffreSelectedUser);
+}
+
+function CreateDeal()
+{
+    if(idServiceDemandeConnectUser == idServiceOffreSelectedUser && idServiceOffreConnectUser == idServiceDemandeSelectedUser)
+    {
+        if(idDemandeConnectUser != idOffreSelectedUser && idOffreConnectUser != idDemandeSelectedUser)
+        {
+            $.ajax
+            (
+                {
+                    type:"get",
+                    url:"addDealInDB",
+                    data:"idOffreUser1="+idOffreSelectedUser+"&idOffreUser2="+idOffreConnectUser,
+                    success:function(data)
+                    {
+                        alert("L'insertion du deal à été effectué");
+                        window.location = 'index';
+                    },
+                    error:function()
+                    {
+                        alert("Erreur lors de l'ajout du deal");
+                    }
+                }
+            )
+        }
+        else
+        {
+            alert("Vous ne pouvez demandez une offre en échange de la même offre");
+        }
+    }
+    else
+    {
+        if(idServiceDemandeConnectUser != idServiceOffreSelectedUser)
+        {
+            alert("L'offre choisie ne correspond à aucune de vos demandes");
+        }
+        else
+        {
+            alert("L'offre que vous proposez ne correspond à aucunes des demandes de l'utilisateur sélectionner");
+        }
+    }
 }

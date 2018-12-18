@@ -14,59 +14,76 @@
     <!-- CSS Pour les icones -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script src="<?php echo base_url() ?>JS/mesFonctions.js"></script>
+    <script>
+        $(function() {
+            $(".cssDemandeDeals").on("click", function() {
+                $(".cssDemandeDeals").css("background-color", "white");
+                $(this).css("background-color", "grey");
+            });
+
+            $(".cssOffreDeals").on("click", function() {
+                $(".cssOffreDeals").css("background-color", "white");
+                $(this).css("background-color", "grey");
+            });
+        });
+    </script>
 </head>
 <body>
-    <input type='search' id='txtRecherche' placeholder='Saisir votre demande' onkeyup='rechercherOffre()' style="color: black;">
-    <form method='POST' action='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/'>
-        <input type="submit" class="btn btn-success btn-block btn-lg" style='width: 100px;' value='Annuler'>
-    </form>
+    
+    <div class='DivInsertDeal'>
+        <input type='search' id='txtRecherche' placeholder='Saisir votre demande' onkeyup='rechercherOffre()' style="color: black;">
+        
+        <div class="fondDemande">
+            <h1 id='Demandes'>Mes Demandes</h1>
+        </div>
 
-    <div class="fondDemande">
-        <h1 id='Demandes'>Mes Demandes</h1>
+        <div class="cssDivDemande" id='divDemande'>
+            <?php
+                foreach ($lesDemandes as $uneDemande)
+                {
+            ?>
+                    <div class="cssDemandeDeals" onclick='setidDemandeConnectUser(<?php echo $uneDemande->idDemande ?>, <?php echo $uneDemande->idService ?>)'>
+                        <p class="infos_Demande">
+                            <strong><?php echo $uneDemande->nomService ?></strong><br>
+                            <?php echo $uneDemande->descriptionDemande ?><br>
+                            <?php echo $uneDemande->dateDemande; ?>
+                        </p>
+                    </div>
+            <?php    
+                }
+            ?>
+            <br>
+        </div>
+
+        <div class="fondDemande">
+            <h1 id='Offres'>Mes Offres</h1>
+        </div>
+
+        <div class="cssDivOffre" id='divOffre'>
+            <?php
+                foreach ($lesOffres as $uneOffre)
+                {
+            ?>
+                    <div class="cssOffreDeals" onclick='setidOffreConnectUser(<?php echo $uneOffre->idOffre ?>, <?php echo $uneOffre->idService ?>)'>
+                        <p class="infos_Offre">
+                            <strong><?php echo $uneOffre->nomService ?></strong><br>
+                            <?php echo $uneOffre->descriptionOffre ?><br>
+                            <?php echo $uneOffre->dateOffre; ?>
+                        </p>
+                    </div>
+            <?php    
+                }
+            ?>
+            <br>
+        </div>
+
+        <form method='POST' action='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/'>
+            <input type="submit" class="btn btn-success btn-block btn-lg" style='width: 100px;' value='Annuler'>
+        </form>
     </div>
 
-    <div class="cssDivDemande" id='divDemande'>
-        <?php
-            foreach ($lesDemandes as $uneDemande)
-            {
-        ?>
-                <div class="" onclick=''>
-                    <p class="infos_Demande">
-                        <strong><?php echo $uneDemande->nomService ?></strong><br>
-                        <?php echo $uneDemande->descriptionDemande ?><br>
-                        <?php echo $uneDemande->dateDemande; ?>
-                    </p>
-                </div>
-        <?php    
-            }
-        ?>
-        <br>
+    <div class='infos_user'>
+        <div id="viewUser"></div>
+        <div id="viewOffresEtDemandes"></div>
     </div>
-
-    <hr>
-
-    <div class="fondDemande">
-        <h1 id='Offres'>Mes Offres</h1>
-    </div>
-
-    <div class="cssDivOffre" id='divOffre'>
-        <?php
-            foreach ($lesOffres as $uneOffre)
-            {
-        ?>
-                <div class="" onclick=''>
-                    <p class="infos_Offre">
-                        <strong><?php echo $uneOffre->nomService ?></strong><br>
-                        <?php echo $uneOffre->descriptionOffre ?><br>
-                        <?php echo $uneOffre->dateOffre; ?>
-                    </p>
-                </div>
-        <?php    
-            }
-        ?>
-        <br>
-    </div>
-
-    <div id="viewUser"></div>
-    <div id="viewOffresEtDemandes"></div>
 </body>

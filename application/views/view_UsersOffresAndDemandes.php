@@ -14,9 +14,22 @@
     <!-- CSS Pour les icones -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script src="<?php echo base_url() ?>JS/mesFonctions.js"></script>
+    <script>
+        $(function() {
+            $(".cssDemandeDeals").on("click", function() {
+                $(".cssDemandeDeals").css("background-color", "white");
+                $(this).css("background-color", "grey");
+            });
+
+            $(".cssOffreDeals").on("click", function() {
+                $(".cssOffreDeals").css("background-color", "white");
+                $(this).css("background-color", "grey");
+            });
+        });
+    </script>
 </head>
 <body>
-<div class="fondDemande">
+    <div class="fondDemande">
         <h1 id='Demandes'>Ses Demandes</h1>
     </div>
 
@@ -25,8 +38,8 @@
             foreach ($lesDemandesUser as $uneDemandeUser)
             {
         ?>
-                <div class="" onclick=''>
-                    <p class="infos_Demande">
+                <div class="cssDemandeDeals" onclick='setidDemandeSelectedUser(<?php echo $uneDemandeUser->idDemande ?>, <?php echo $uneDemandeUser->idService ?>)'>
+                    <p class="">
                         <strong><?php echo $uneDemandeUser->nomService ?></strong><br>
                         <?php echo $uneDemandeUser->descriptionDemande ?><br>
                         <?php echo $uneDemandeUser->dateDemande; ?>
@@ -49,8 +62,8 @@
             foreach ($lesOffresUser as $uneOffreUser)
             {
         ?>
-                <div class="" onclick=''>
-                    <p class="infos_Offre">
+                <div class="cssOffreDeals" onclick='setidOffreSelectedUser(<?php echo $uneOffreUser->idOffre ?>, <?php echo $uneOffreUser->idService ?>)'>
+                    <p class="">
                         <strong><?php echo $uneOffreUser->nomService ?></strong><br>
                         <?php echo $uneOffreUser->descriptionOffre ?><br>
                         <?php echo $uneOffreUser->dateOffre; ?>
@@ -61,4 +74,6 @@
         ?>
         <br>
     </div>
+
+    <input type='button' value='Valider le deal' onclick='CreateDeal()' style="color: black;">
 </body>
