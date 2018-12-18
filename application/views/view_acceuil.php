@@ -78,7 +78,7 @@
     <br>
     </div>
 
-    <h1 id='Deals'>Mes Deals</h1>
+    <h1 id='Deals'>Mes Deals <a class='lienplus' href='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/AddDeal'>+</a></h1>
     <hr>
     <div class="cssDivDeals" id='divDeals'>
         <?php
