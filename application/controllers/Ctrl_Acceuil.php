@@ -16,7 +16,7 @@ class Ctrl_Acceuil extends CI_Controller
         $data['lesDeals'] = $this->Model_Deal->getAllDealsCreator($idOfConnectUser);
         $data['lesInfosUser2'] = $this->Model_Deal->getAllInfoUser2($idOfConnectUser);
 
-        $this->load->view("View_Acceuil", $data);
+        $this->load->view("view_acceuil", $data);
     }
 
     public function addInformationOffre()
@@ -28,7 +28,7 @@ class Ctrl_Acceuil extends CI_Controller
 
         $data['lesInfosOffre'] = $this->Model_Offre->getInformationOffreById($idOfConnectUser, $_GET['idOffre']);
 
-        $this->load->view("View_UpdateOffre", $data);
+        $this->load->view("view_updateOffre", $data);
     }
 
     public function setInformationOffre()
@@ -50,7 +50,7 @@ class Ctrl_Acceuil extends CI_Controller
 
         $data['lesInfosDemande'] = $this->Model_Demande->getInformationDemandeById($idOfConnectUser, $_GET['idDemande']);
 
-        $this->load->view("View_UpdateDemande", $data);
+        $this->load->view("view_updateDemande", $data);
     }
 
     public function setInformationDemande()
@@ -62,7 +62,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesOffres'] = $this->Model_Demande->setOffre($idDemande, $descDemande, $dateDemande);
 
-        // $this->load->view("View_Acceuil", $data);
+        // $this->load->view("view_acceuil", $data);
         redirect('Ctrl_Acceuil/', 'refresh');
     }
     
@@ -122,7 +122,7 @@ class Ctrl_Acceuil extends CI_Controller
         $data['nomServiceUser1'] = $this->Model_Deal->getNameServiceUserOffre1($_GET['idDeal']);
         $data['nomServiceUser2'] = $this->Model_Deal->getNameServiceUserOffre2($_GET['idDeal']);
 
-        $this->load->view("View_UpdateDeal", $data);
+        $this->load->view("view_updateDeal", $data);
     }
 
     public function setNoteDeal()
@@ -150,7 +150,7 @@ class Ctrl_Acceuil extends CI_Controller
         $this->load->model("Model_Demande");
         $data['lesDemandes'] = $this->Model_Demande->getAllDemande($idOfConnectUser);
 
-        $this->load->view('view_insertdeal',$data);
+        $this->load->view('view_insertDeal',$data);
     }
 
     public function RechercherOffre()

@@ -256,7 +256,7 @@ function rechercherOffre()
 {
     // console.log($('#txtRecherche').val());
     var txtRecherche = $('#txtRecherche').val();
-    if(txtRecherche.length >= 3)
+    if(txtRecherche.length >= 2)
     {
         $.ajax
         (

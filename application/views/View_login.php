@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>Bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>CSS/mesStyles.css" />
 
-    <script src="<?php echo base_url() ?>./Css/style.css"></script>
+    <script src="<?php echo base_url() ?>./CSS/style.css"></script>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
