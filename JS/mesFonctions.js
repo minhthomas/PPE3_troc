@@ -286,7 +286,6 @@ function rechercherOffre()
 
 function selectUserForDeal(idUser)
 {
-    // console.log(idUser);
     $.ajax
     (
         {
@@ -322,32 +321,39 @@ function setidDemandeConnectUser(id, idService)
 {
     idDemandeConnectUser = id;
     idServiceDemandeConnectUser = idService;
-    console.log("idDemandeConnectUser->", idDemandeConnectUser);
-    console.log("idServiceDemandeConnectUser->", idServiceDemandeConnectUser);
 }
 
 function setidOffreConnectUser(id, idService)
 {
     idOffreConnectUser = id;
     idServiceOffreConnectUser = idService;
-    console.log("idOffreConnectUser->", idOffreConnectUser);
-    console.log("idServiceOffreConnectUser->", idServiceOffreConnectUser);
 }
 
 function setidDemandeSelectedUser(id, idService)
 {
     idDemandeSelectedUser = id;
     idServiceDemandeSelectedUser = idService;
-    console.log("idDemandeSelectedUser->", idDemandeSelectedUser);
-    console.log("idServiceDemandeSelectedUser->", idServiceDemandeSelectedUser);
 }
 
 function setidOffreSelectedUser(id, idService)
 {
     idOffreSelectedUser = id;
     idServiceOffreSelectedUser = idService;
-    console.log("idOffreSelectedUser->", idOffreSelectedUser);
-    console.log("idServiceOffreSelectedUser->", idServiceOffreSelectedUser);
+}
+
+var idRegionDemandeUserConnected;
+var idRegionOffreSelectedUser;
+
+function setIdRegionDemande(idRegion)
+{
+    idRegionDemandeUserConnected = idRegion;
+    console.log("idRegionDemandeUserConnected->", idRegionDemandeUserConnected);
+}
+
+function setIdRegionOffre(idRegion)
+{
+    idRegionOffreSelectedUser = idRegion;
+    console.log("idRegionOffreSelectedUser->", idRegionOffreSelectedUser);
 }
 
 function CreateDeal()
@@ -389,5 +395,31 @@ function CreateDeal()
         {
             alert("L'offre que vous proposez ne correspond à aucunes des demandes de l'utilisateur sélectionner");
         }
+    }
+}
+
+function ShowDistance(){
+    if(idRegionDemandeUserConnected != idRegionOffreSelectedUser){
+        $.ajax
+        (
+            {
+                type:"get",
+                url:"getDistanceRegion",
+                data:"idRegion1="+idRegionDemandeUserConnected+"&idRegion2="+idRegionOffreSelectedUser,
+                success:function(data)
+                {
+                    console.log("data->", data);
+                    $("#viewDistance").empty();
+                    $("#viewDistance").append(data);
+                },
+                error:function()
+                {
+                    alert("Erreur lors de l'affichage de la distance.");
+                }
+            }
+        )
+    }
+    else{
+        alert("Veuillez sélectionner une offre et une demande.");
     }
 }

@@ -176,6 +176,14 @@ class Ctrl_Acceuil extends CI_Controller
     {
         $this->load->model("Model_Deal");
         $data['leDealAjouter'] = $this->Model_Deal->insertDeal($_GET['idOffreUser1'], $_GET['idOffreUser2']);
-    }   
+    }
+
+    public function getDistanceRegion()
+    {
+        $this->load->model("Model_Region");
+        $data['laDistance'] = $this->Model_Region->getDistance($_GET['idRegion1'], $_GET['idRegion2']);
+
+        $this->load->view('view_Distance', $data);
+    }
 }
 ?>

@@ -46,7 +46,8 @@
                         <p class="infos_Demande">
                             <strong><?php echo $uneDemande->nomService ?></strong><br>
                             <?php echo $uneDemande->descriptionDemande ?><br>
-                            <?php echo $uneDemande->dateDemande; ?>
+                            <?php echo $uneDemande->dateDemande; ?><br>
+                            <?php echo $uneDemande->LibelleRegion; ?>
                         </p>
                     </div>
             <?php    
@@ -68,7 +69,8 @@
                         <p class="infos_Offre">
                             <strong><?php echo $uneOffre->nomService ?></strong><br>
                             <?php echo $uneOffre->descriptionOffre ?><br>
-                            <?php echo $uneOffre->dateOffre; ?>
+                            <?php echo $uneOffre->dateOffre; ?><br>
+                            <?php echo $uneOffre->LibelleRegion; ?>
                         </p>
                     </div>
             <?php    
@@ -80,10 +82,13 @@
         <form method='POST' action='<?php echo base_url(); ?>index.php/Ctrl_Acceuil/'>
             <input type="submit" class="btn btn-success btn-block btn-lg" style='width: 100px;' value='Annuler'>
         </form>
+        <br>
+        <input type='button' value= 'Voir la distance' onclick='ShowDistance()' style="color: black;"><br>
     </div>
 
     <div class='infos_user'>
         <div id="viewUser"></div>
         <div id="viewOffresEtDemandes"></div>
+        <div id="viewDistance"></div>
     </div>
 </body>

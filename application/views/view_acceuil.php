@@ -45,7 +45,8 @@
                     <p class="infos_Offre">
                         <strong><?php echo $uneOffre->nomService ?></strong><br>
                         <?php echo $uneOffre->descriptionOffre ?><br>
-                        <?php echo $uneOffre->dateOffre; ?>
+                        <?php echo $uneOffre->dateOffre; ?><br>
+                        <?php echo $uneOffre->LibelleRegion; ?>
                     </p>
                 </div>
         <?php    
@@ -69,7 +70,8 @@
                     <p class="infos_Demande">
                         <strong><?php echo $uneDemande->nomService ?></strong><br>
                         <?php echo $uneDemande->descriptionDemande ?><br>
-                        <?php echo $uneDemande->dateDemande; ?>
+                        <?php echo $uneDemande->dateDemande; ?><br>
+                        <?php echo $uneDemande->LibelleRegion; ?>
                     </p>
                 </div>
         <?php    

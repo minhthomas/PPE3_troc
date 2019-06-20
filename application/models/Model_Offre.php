@@ -9,9 +9,10 @@ class Model_Offre extends CI_Model
     
     public function getAllOffre($idUser)
     {
-        $sql = $this->db->query("SELECT idOffre, descriptionOffre, dateOffre, nomService, service.idService
-        FROM offre, service
+        $sql = $this->db->query("SELECT idOffre, descriptionOffre, dateOffre, nomService, service.idService, region.idRegion, region.LibelleRegion
+        FROM offre, service, region
         WHERE offre.idService = service.idService
+        AND region.idRegion = offre.idRegion
         AND idUser = ".$idUser);
         return $sql->result();
     }

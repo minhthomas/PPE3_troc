@@ -38,11 +38,12 @@
             foreach ($lesDemandesUser as $uneDemandeUser)
             {
         ?>
-                <div class="cssDemandeDeals" onclick='setidDemandeSelectedUser(<?php echo $uneDemandeUser->idDemande ?>, <?php echo $uneDemandeUser->idService ?>)'>
+                <div class="cssDemandeDeals" onclick='setidDemandeSelectedUser(<?php echo $uneDemandeUser->idDemande ?>, <?php echo $uneDemandeUser->idService ?>); setIdRegionDemande(<?php echo $uneDemandeUser->idRegion ?>);'>
                     <p class="">
                         <strong><?php echo $uneDemandeUser->nomService ?></strong><br>
                         <?php echo $uneDemandeUser->descriptionDemande ?><br>
-                        <?php echo $uneDemandeUser->dateDemande; ?>
+                        <?php echo $uneDemandeUser->dateDemande; ?><br>
+                        <?php echo $uneDemandeUser->LibelleRegion; ?>
                     </p>
                 </div>
         <?php    
@@ -62,11 +63,12 @@
             foreach ($lesOffresUser as $uneOffreUser)
             {
         ?>
-                <div class="cssOffreDeals" onclick='setidOffreSelectedUser(<?php echo $uneOffreUser->idOffre ?>, <?php echo $uneOffreUser->idService ?>)'>
+                <div class="cssOffreDeals" onclick='setidOffreSelectedUser(<?php echo $uneOffreUser->idOffre ?>, <?php echo $uneOffreUser->idService ?>);  setIdRegionOffre(<?php echo $uneOffreUser->idRegion ?>);'>
                     <p class="">
                         <strong><?php echo $uneOffreUser->nomService ?></strong><br>
                         <?php echo $uneOffreUser->descriptionOffre ?><br>
-                        <?php echo $uneOffreUser->dateOffre; ?>
+                        <?php echo $uneOffreUser->dateOffre; ?><br>
+                        <?php echo $uneOffreUser->LibelleRegion; ?>
                     </p>
                 </div>
         <?php    
@@ -76,4 +78,5 @@
     </div>
 
     <input type='button' value='Valider le deal' onclick='CreateDeal()' style="color: black;">
+    <br>
 </body>
